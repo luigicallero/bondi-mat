@@ -1,5 +1,3 @@
-// This example code is designed to quickly deploy an example contract using Remix.
-
 pragma solidity ^0.6.7;
 
 import "https://github.com/smartcontractkit/chainlink/blob/master/evm-contracts/src/v0.6/interfaces/AggregatorV3Interface.sol";
