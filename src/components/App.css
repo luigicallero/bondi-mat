@@ -1,0 +1,59 @@
+.moneda{
+    
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+}
+.dolar{
+    
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+    background-color: blue;
+    border-radius: 50%;
+
+}
+.main-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 30%;
+    position:static;
+    width: 550px;
+    height: 550px;
+    background-color: darkgray;
+    border-radius: 15%;
+    
+}
+.main-box::before{
+  content: "";
+  opacity: 0.5;
+  z-index: -1;
+}
+.p{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+}
+
+  body{
+    background-image: url('../wallstreet.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+  body::before{
+    content: "";
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg,blue,red);
+    opacity: 0.5;
+    z-index: -1;
+  }
+  .popup{
+    cursor:pointer;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+  }
