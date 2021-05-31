@@ -1,13 +1,5 @@
 # Mega_Link - a simple and intuitive application using Chainlink running on Polygon (previously Matic)
 
-<br/>
-<p align="center">
-<a href="https://chain.link" target="_blank">
-<img src="https://github.com/luigicallero/Mega_Link/main/src/2021-05-28_16-15.png" width="225" alt="Chainlink logo">
-</a>
-</p>
-<br/>
-
 ## Comments
 This project is based on the chainlink_defi project:
 git clone https://github.com/PatrickAlphaC/chainlink_defi
