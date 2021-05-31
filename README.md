@@ -9,6 +9,10 @@
 <br/>
 
 ## Requirements
+This project is based on the chainlink_defi project:
+git clone https://github.com/PatrickAlphaC/chainlink_defi
+
+## Requirements
 
 - NPM
 
