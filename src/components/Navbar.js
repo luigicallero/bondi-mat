@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import farmer from "../farmer.png";
+import polygon from "../polygon-logo.png"
 
 class Navbar extends Component {
   render() {
@@ -12,7 +12,7 @@ class Navbar extends Component {
           rel="noopener noreferrer"
         >
           <img
-            src={farmer}
+            src={polygon}
             width="30"
             height="30"
             className="d-inline-block align-top"

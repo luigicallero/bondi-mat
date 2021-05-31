@@ -6,7 +6,10 @@ import dai from "../dai.png";
 import chainlink from "../chainlink.png";
 import dappImage from "../dapp.png";
 
+
+
 class Main extends Component {
+  //window.alert(this.props.priceContractAddress)
   render() {
     return (
       <div id="content" className="mt-3">
@@ -14,7 +17,7 @@ class Main extends Component {
           <thead>
             <tr>
               <th scope="col">Addresss of Price Contract is: {this.props.priceContractAddress}</th>
-              <th scope="col">Reward Balance</th>
+              <th scope="col">Current ETH Price (from Chainlink Oracle Node): {this.props.getLatestPrice}</th>
             </tr>
           </thead>
         </table>  

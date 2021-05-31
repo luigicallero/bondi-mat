@@ -23,18 +23,40 @@ class App extends Component {
     const networkId = await web3.eth.net.getId()
 
     // Load ETH/USD Price
-    const PriceContract = PriceConsumerV3.networks[networkId]
-    if (PriceContract) {
-      window.alert("PriceConsumerV3 contract Successfully deployed to detected network.")
-      const priceEth = new web3.eth.Contract(PriceConsumerV3.abi, PriceContract.address)
-      const priceContractAddress = await priceEth.address
-      this.setState({ priceContractAddress: priceContractAddress })
-      //const priceLatestEth = await priceEth.methods.getLatestPrice()
-      //this.setState({ priceLatestEth: priceLatestEth.toString() })
+    const priceContractExists = PriceConsumerV3.networks[networkId]
+    if (priceContractExists) {
+      const priceContract = new web3.eth.Contract(
+      PriceConsumerV3.abi, 
+      priceContractExists.address
+      )
+      this.setState({ priceContractAddress: priceContractExists.address })
+      // this.setState({ pepe: "DALEEEEEEE",})
+      this.setState({ priceContract })
+      const getLatestPrice = await priceContract.methods
+        //.getLatestETH(this.state.account)
+        .getLatestETH()
+        .call()
+      this.setState({ getLatestPrice: getLatestPrice.toString() })
+
     } else {
       window.alert("PriceConsumerV3 contract not deployed to detected network.")
     }
 
+/* Code to Learn from:
+
+    if (dappTokenData) {
+      const dappToken = new web3.eth.Contract(
+        DappToken.abi,
+        dappTokenData.address
+      )
+      this.setState({ dappTokenAddress: dappTokenData.address })
+      this.setState({ dappToken })
+      let dappTokenBalance = await dappToken.methods
+        .balanceOf(this.state.account)
+        .call()
+      this.setState({ dappTokenBalance: dappTokenBalance.toString() })
+
+*/
   
     this.setState({ loading: false })
   }
@@ -57,13 +79,7 @@ class App extends Component {
     super(props)
     this.state = {
       account: "0x0",
-      erc20: {},
-      dappToken: {},
-      dappTokenAddress: "",
-      tokenFarm: {},
-      erc20Balance: "0",
-      dappTokenBalance: "0",
-      stakingBalance: "0",
+      priceContractAddress: "",
       loading: true,
       image: chainlink,
       tokenName: "LINK",
@@ -81,8 +97,9 @@ class App extends Component {
     } else {
       content = (
         <Main
-          tokenName={this.state.tokenName}
           image={this.state.image}
+          priceContractAddress={this.state.priceContractAddress}
+          getLatestPrice={this.state.getLatestPrice}
         />
       )
     }

@@ -62,24 +62,6 @@ class App extends Component {
     let erc20Balance = await erc20.methods.balanceOf(this.state.account).call()
     this.setState({ erc20Balance: erc20Balance.toString() })
 
-
-
-    // Load ETH/USD Price
-    const PriceContract = PriceConsumerV3.networks[networkId]
-    if (PriceContract) {
-      window.alert("PriceConsumerV3 contract Successfully deployed to detected network.")
-    /*  const priceEth = new web3.eth.Contract(PriceConsumerV3.abi, ethPrice.address)
-      this.setState({ priceContractAddress: ethPrice.address })
-      this.setState({ priceEth })
-      let priceLatestEth = await priceEth.methods
-        .getLatestPrice()
-        .call()
-      this.setState({ priceLatestEth: priceLatestEth.toString() })
-    */} else {
-      window.alert("PriceConsumerV3 contract not deployed to detected network.")
-    }
-
-  
     // Load DappToken
     const dappTokenData = DappToken.networks[networkId]
     if (dappTokenData) {
