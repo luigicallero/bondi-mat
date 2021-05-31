@@ -15,102 +15,27 @@ class App extends Component {
     await this.loadBlockchainData()
   }
 
-  async changeToken(address, name, tokenImage) {
-    await this.setState({ image: tokenImage })
-    await this.setState({ tokenAddress: address })
-    await this.setState({ tokenName: name })
-    await this.updateBalance(address).then(this.render())
-  }
-
-  async updateBalance(address) {
-    const web3 = window.web3
-    const erc20 = new web3.eth.Contract(ERC20.abi, this.state.tokenAddress)
-    await this.setState({ erc20 })
-    let erc20Balance = await erc20.methods.balanceOf(this.state.account).call()
-    await this.setState({ erc20Balance: erc20Balance.toString() })
-    await this.updateStakingBalance()
-  }
-
-  async updateStakingBalance() {
-    const web3 = window.web3
-    const networkId = await web3.eth.net.getId()
-    const tokenFarmData = TokenFarm.networks[networkId]
-    const tokenFarm = new web3.eth.Contract(
-      TokenFarm.abi,
-      tokenFarmData.address
-    )
-    let stakingBalance = await tokenFarm.methods
-      .stakingBalance(this.state.tokenAddress, this.state.account)
-      .call()
-    this.setState({ stakingBalance: stakingBalance.toString() })
-  }
-
   async loadBlockchainData() {
     const web3 = window.web3
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
-    this.setState({ tokenAddress: "0xa36085F69e2889c224210F603D836748e7dC0088",})
-    this.setState({ image: chainlink })
-    this.setState({ tokenName: "LINK" })
 
     const networkId = await web3.eth.net.getId()
 
-    // Load DAI as the starting default Token Data
-    // const daiTokenData = DaiToken.networks[networkId];
-    const erc20 = new web3.eth.Contract(ERC20.abi, this.state.tokenAddress)
-    this.setState({ erc20 })
-    let erc20Balance = await erc20.methods.balanceOf(this.state.account).call()
-    this.setState({ erc20Balance: erc20Balance.toString() })
-
-
-    // Load ETH Price
-    const ethPrice = PriceConsumerV3.networks[networkId]
-    if (ethPrice) {
-      const priceEth = new web3.eth.Contract(
-        PriceConsumerV3.abi,
-        ethPrice.address
-      )
-      this.setState({ priceContractAddress: ethPrice.address })
-      this.setState({ priceEth })
-      let priceLatestEth = await priceEth.methods
-        .getLatestPrice()
-        .call()
-      this.setState({ priceLatestEth: priceLatestEth.toString() })
+    // Load ETH/USD Price
+    const PriceContract = PriceConsumerV3.networks[networkId]
+    if (PriceContract) {
+      window.alert("PriceConsumerV3 contract Successfully deployed to detected network.")
+      const priceEth = new web3.eth.Contract(PriceConsumerV3.abi, PriceContract.address)
+      const priceContractAddress = await priceEth.address
+      this.setState({ priceContractAddress: priceContractAddress })
+      //const priceLatestEth = await priceEth.methods.getLatestPrice()
+      //this.setState({ priceLatestEth: priceLatestEth.toString() })
     } else {
       window.alert("PriceConsumerV3 contract not deployed to detected network.")
     }
 
-
-    // Load DappToken
-    const dappTokenData = DappToken.networks[networkId]
-    if (dappTokenData) {
-      const dappToken = new web3.eth.Contract(
-        DappToken.abi,
-        dappTokenData.address
-      )
-      this.setState({ dappTokenAddress: dappTokenData.address })
-      this.setState({ dappToken })
-      let dappTokenBalance = await dappToken.methods
-        .balanceOf(this.state.account)
-        .call()
-      this.setState({ dappTokenBalance: dappTokenBalance.toString() })
-    } else {
-      window.alert("DappToken contract not deployed to detected network.")
-    }
-
-    // Load TokenFarm
-    const tokenFarmData = TokenFarm.networks[networkId]
-    if (tokenFarmData) {
-      const tokenFarm = new web3.eth.Contract(
-        TokenFarm.abi,
-        tokenFarmData.address
-      )
-      this.setState({ tokenFarm })
-      this.updateStakingBalance()
-    } else {
-      window.alert("TokenFarm contract not deployed to detected network.")
-    }
-
+  
     this.setState({ loading: false })
   }
 
@@ -127,30 +52,6 @@ class App extends Component {
     }
   }
 
-  stakeTokens = (amount, tokenAddress) => {
-    this.setState({ loading: true })
-    this.state.erc20.methods
-      .approve(this.state.tokenFarm._address, amount)
-      .send({ from: this.state.account })
-      .on("transactionHash", (hash) => {
-        this.state.tokenFarm.methods
-          .stakeTokens(amount, tokenAddress)
-          .send({ from: this.state.account })
-          .on("transactionHash", (hash) => {
-            this.setState({ loading: false })
-          })
-      })
-  };
-
-  unstakeTokens = (address) => {
-    this.setState({ loading: true })
-    this.state.tokenFarm.methods
-      .unstakeTokens(address)
-      .send({ from: this.state.account })
-      .on("transactionHash", (hash) => {
-        this.setState({ loading: false })
-      })
-  };
 
   constructor(props) {
     super(props)
@@ -180,17 +81,8 @@ class App extends Component {
     } else {
       content = (
         <Main
-          erc20Balance={this.state.erc20Balance}
-          dappTokenBalance={this.state.dappTokenBalance}
-          dappTokenAddress={this.state.dappTokenAddress}
-          stakingBalance={this.state.stakingBalance}
-          stakeTokens={this.stakeTokens.bind(this)}
-          unstakeTokens={this.unstakeTokens.bind(this)}
           tokenName={this.state.tokenName}
           image={this.state.image}
-          tokenAddress={this.state.tokenAddress}
-          changeToken={this.changeToken.bind(this)}
-          updateBalance={this.updateBalance.bind(this)}
         />
       )
     }
