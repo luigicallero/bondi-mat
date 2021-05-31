@@ -1,4 +1,4 @@
-# Mega_Link - a simple and intuitive application using Chainlink
+# Mega_Link - a simple and intuitive application using Chainlink running on Polygon (previously Matic)
 
 <br/>
 <p align="center">
