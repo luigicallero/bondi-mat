@@ -40,8 +40,8 @@ npm install
 For deploying to the Polygon test network (Mumbai), Truffle will use `truffle-hdwallet-provider` for your mnemonic and an RPC URL. Set your environment variables `$RPC_URL` and `$MNEMONIC` before running and make sure you have enough MATICs in your wallet (0.3 Matics should be fine; Matic Faucet: https://faucet.matic.network):
 
 ```bash
-export RPC_URL='https://kovan.infura.io/v3/YOUR_PROJECT_ID'
-export MNEMONIC='YOUR_12_SECRET_METAMASK'
+export rpc_url='https://kovan.infura.io/v3/YOUR_PROJECT_ID'
+export mnemonic='YOUR_12_SECRET_METAMASK'
 
 truffle migrate --network kovan --reset
 ```
