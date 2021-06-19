@@ -30,11 +30,14 @@ module.exports = {
       skipDryRun: true
     },
     matic: {
+      // Public Mumbai RPC addresses
       //provider: () => new HDWalletProvider(mnemonic, `https://rpc-mumbai.matic.today`),
       //provider: () => new HDWalletProvider(mnemonic, `https://rpc-mumbai.maticvigil.com`),
+      
+      // Infura Mumbai RPC address
       provider: () => new HDWalletProvider(mnemonic, rpc_url),
-      //network_id: 80001, // to be used with mumbai.matic rpc
-      network_id: 42, // to be used for infura rpc
+      //network_id: 80001, // to be used with Public Polygon Mumbai rpc
+      network_id: 42, // to be used for Infura Polygon Mumbai rpc
       confirmations: 2,
       timeoutBlocks: 200,
       skipDryRun: true
