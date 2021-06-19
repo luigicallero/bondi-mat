@@ -3,8 +3,8 @@ require('babel-polyfill')
 const HDWalletProvider = require('@truffle/hdwallet-provider')
 
 require('dotenv').config()
-const mnemonic = process.env.MNEMONIC
-const url = process.env.RPC_URL
+const mnemonic = process.env.mnemonic
+const rpc_url = process.env.rpc_url
 
 module.exports = {
   networks: {
@@ -30,8 +30,11 @@ module.exports = {
       skipDryRun: true
     },
     matic: {
-      provider: () => new HDWalletProvider(mnemonic, `https://rpc-mumbai.matic.today`),
-      network_id: 80001,
+      //provider: () => new HDWalletProvider(mnemonic, `https://rpc-mumbai.matic.today`),
+      //provider: () => new HDWalletProvider(mnemonic, `https://rpc-mumbai.maticvigil.com`),
+      provider: () => new HDWalletProvider(mnemonic, rpc_url),
+      //network_id: 80001, // to be used with mumbai.matic rpc
+      network_id: 42, // to be used for infura rpc
       confirmations: 2,
       timeoutBlocks: 200,
       skipDryRun: true
