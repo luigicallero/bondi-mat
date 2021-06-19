@@ -45,6 +45,9 @@ export MNEMONIC='YOUR_12_SECRET_METAMASK'
 
 truffle migrate --network kovan --reset
 ```
+## Troubleshooting
+If you face any socket issues during deployment on Mumbai testnet try with a different testnet RPC as seen in documentation:
+https://docs.matic.network/docs/develop/network-details/network
 
 ## Helper Scripts
 
