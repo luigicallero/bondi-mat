@@ -1,9 +1,6 @@
 import React, { Component } from "react"
 import Web3 from "web3"
-import DappToken from "../abis/DappToken.json"
-import TokenFarm from "../abis/TokenFarm.json"
-import PriceConsumerV3 from "../abis/PriceConsumerV3.json"
-import ERC20 from "../abis/ERC20.json"
+import BondiMat from "../abis/BondiMat.json"
 import Navbar from "./Navbar"
 import Main from "./Main"
 import "./App.css"
@@ -20,16 +17,16 @@ class App extends Component {
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
 
-    const networkId = await web3.eth.net.getId()
+    const networkId = await web3.eth.net.getId() 
 
     // Load ETH/USD Price
-    const priceContractExists = PriceConsumerV3.networks[networkId]
-    if (priceContractExists) {
+    const BondiMatContractExists = BondiMat.networks[networkId]
+    if (BondiMatContractExists) {
       const priceContract = new web3.eth.Contract(
-      PriceConsumerV3.abi, 
-      priceContractExists.address
+      BondiMat.abi, 
+      BondiMatContractExists.address
       )
-      this.setState({ priceContractAddress: priceContractExists.address })
+      this.setState({ priceContractAddress: BondiMatContractExists.address })
       // this.setState({ pepe: "DALEEEEEEE",})
       this.setState({ priceContract })
       const getLatestPrice = await priceContract.methods
@@ -39,25 +36,9 @@ class App extends Component {
       this.setState({ getLatestPrice: getLatestPrice.toString() })
 
     } else {
-      window.alert("PriceConsumerV3 contract not deployed to detected network.")
+      window.alert("BondiMat contract not deployed to detected network.")
     }
 
-/* Code to Learn from:
-
-    if (dappTokenData) {
-      const dappToken = new web3.eth.Contract(
-        DappToken.abi,
-        dappTokenData.address
-      )
-      this.setState({ dappTokenAddress: dappTokenData.address })
-      this.setState({ dappToken })
-      let dappTokenBalance = await dappToken.methods
-        .balanceOf(this.state.account)
-        .call()
-      this.setState({ dappTokenBalance: dappTokenBalance.toString() })
-
-*/
-  
     this.setState({ loading: false })
   }
 
