@@ -17,7 +17,7 @@ class Main extends Component {
           <thead>
             <tr>
               <th scope="col">Your Current Matic: {this.props.balance}</th>
-              <th scope="col">Current ETH Price (from Chainlink Oracle Node): {this.props.getLatestPrice}</th>
+              <th scope="col">BondiMat Contract Address: {this.props.BondiMatContractAddress}</th>
             </tr>
           </thead>
         </table>  

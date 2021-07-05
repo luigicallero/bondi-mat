@@ -33,6 +33,15 @@ class App extends Component {
       )
       this.setState({ BondiMatContractAddress: BondiMatContractExists.address })
       this.setState({ BondiMatContract })
+
+      let tripsLeft = await BondiMatContract.methods.traveler[(this.state.account)]
+      this.setState({ tripsLeft: tripsLeft})
+      console.log(tripsLeft)
+
+
+
+
+
 //*** This function is not working    
       /*let balanceOfCont = await BondiMatContract.methods
         .balanceOfCont()
@@ -64,7 +73,8 @@ class App extends Component {
     super(props)
     this.state = {
       account: "0x0",
-      balance: 1,
+      balance: 0,
+      tripsLeft: 0,
       BondiMatContractAddress: "",
       loading: true,
       image: chainlink,
@@ -73,7 +83,7 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.balance)
+    console.log(this.state.tripsLeft)
     let content
     if (this.state.loading) {
       content = (
