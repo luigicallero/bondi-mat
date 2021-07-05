@@ -5,6 +5,7 @@ pragma solidity ^0.6.6;
 // https://docs.openzeppelin.com/contracts/2.x/
 // import working only if you add the contract with nmp: 'npm install @openzeppelin/contracts'
 // import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+// traveler should only see his own trips left
     
 contract BondiMat{
     uint public totalCost;

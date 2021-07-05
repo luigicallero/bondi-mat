@@ -18,6 +18,10 @@ class App extends Component {
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
 
+    let balance = await web3.eth.getBalance(this.state.account)
+    balance = web3.utils.fromWei(balance)
+    this.setState({ balance: balance})
+
     const networkId = await web3.eth.net.getId() 
 
     // Load BondiMat Contract information
@@ -60,6 +64,7 @@ class App extends Component {
     super(props)
     this.state = {
       account: "0x0",
+      balance: 1,
       BondiMatContractAddress: "",
       loading: true,
       image: chainlink,
@@ -68,6 +73,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.balance)
     let content
     if (this.state.loading) {
       content = (
@@ -81,6 +87,7 @@ class App extends Component {
           image={this.state.image}
           BondiMatContractAddress={this.state.BondiMatContractAddress}
           balanceOfCont={this.state.balanceOfCont}
+          balance={this.state.balance}
         />
       )
     }
