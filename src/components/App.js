@@ -8,7 +8,8 @@ import chainlink from "../chainlink.png"
 
 class App extends Component {
   async componentWillMount() {
-    await this.loadWeb3()
+    await this.loadWeb3() // Loading Metamask
+    //window.alert("Aquí estamos a punto de llamar a Metamask")
     await this.loadBlockchainData()
   }
 
@@ -19,26 +20,25 @@ class App extends Component {
 
     const networkId = await web3.eth.net.getId() 
 
-    // Load ETH/USD Price
+    // Load BondiMat Contract information
     const BondiMatContractExists = BondiMat.networks[networkId]
     if (BondiMatContractExists) {
-      const priceContract = new web3.eth.Contract(
+      const BondiMatContract = new web3.eth.Contract(
       BondiMat.abi, 
       BondiMatContractExists.address
       )
-      this.setState({ priceContractAddress: BondiMatContractExists.address })
-      // this.setState({ pepe: "DALEEEEEEE",})
-      this.setState({ priceContract })
-      const getLatestPrice = await priceContract.methods
-        //.getLatestETH(this.state.account)
-        .getLatestETH()
+      this.setState({ BondiMatContractAddress: BondiMatContractExists.address })
+      this.setState({ BondiMatContract })
+//*** This function is not working    
+      /*let balanceOfCont = await BondiMatContract.methods
+        .balanceOfCont()
         .call()
-      this.setState({ getLatestPrice: getLatestPrice.toString() })
-
+      this.setState({ balanceOfCont: balanceOfCont.toString() })
+    */
     } else {
-      window.alert("BondiMat contract not deployed to detected network.")
+      window.alert("BondiMat contract not deployed to detected network. Please check that Metamask is in the correct Network: Polygon (MATIC)")
     }
-
+  //window.alert("Si llegamos aquí loading debería ser false")
     this.setState({ loading: false })
   }
 
@@ -60,7 +60,7 @@ class App extends Component {
     super(props)
     this.state = {
       account: "0x0",
-      priceContractAddress: "",
+      BondiMatContractAddress: "",
       loading: true,
       image: chainlink,
       tokenName: "LINK",
@@ -79,8 +79,8 @@ class App extends Component {
       content = (
         <Main
           image={this.state.image}
-          priceContractAddress={this.state.priceContractAddress}
-          getLatestPrice={this.state.getLatestPrice}
+          BondiMatContractAddress={this.state.BondiMatContractAddress}
+          balanceOfCont={this.state.balanceOfCont}
         />
       )
     }
