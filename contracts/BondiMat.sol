@@ -31,10 +31,7 @@ contract BondiMat{
         // revisar acá como ponerle el msg.sender y que lo tome como una address payable
         // contractOwner = msg.sender;
     }
-
-    //*** function to show current MATIC available or it could be shown when buying ... uint balance; // to show the user what the amount of MATIC he has to purchase  
-    //*** function to update the cost of trips (onlyOwner or delegated)
-     
+    
     // send Ether to smart contract from Julian video: https://www.youtube.com/watch?v=4k_ak3SFczc
     function buyTicket(uint _numberOfTrips) external payable{
         totalCost = _numberOfTrips * tripCost;
@@ -69,6 +66,9 @@ contract BondiMat{
 
 
 // ToDos
+    //*** function to show current MATIC available or it could be shown when buying ... uint balance; // to show the user what the amount of MATIC he has to purchase  
+    //*** function to update the cost of trips (onlyOwner or delegated)
+    
 // Flight Contract https://github.com/smallbatch-apps/fairline-contract/blob/master/contracts/Flight.sol
  //modifier hasTicket(){
     //require(_ownerSeats[msg.sender].length > 0, "Passenger must have active QR for this trip");

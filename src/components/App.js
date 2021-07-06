@@ -34,13 +34,10 @@ class App extends Component {
       this.setState({ BondiMatContractAddress: BondiMatContractExists.address })
       this.setState({ BondiMatContract })
 
-      let tripsLeft = await BondiMatContract.methods.traveler[(this.state.account)]
-      this.setState({ tripsLeft: tripsLeft})
-      console.log(tripsLeft)
+      let tripsLeft = await BondiMatContract.methods.traveler(this.state.account).call()
+        .then(console.log);
 
-
-
-
+      this.setState({ tripsLeft })
 
 //*** This function is not working    
       /*let balanceOfCont = await BondiMatContract.methods
