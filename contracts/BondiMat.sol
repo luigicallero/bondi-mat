@@ -66,7 +66,9 @@ contract BondiMat{
         require(msg.sender == owner, "I am afraid only Contract Owner can perform this type of tasks");
         _;
     }
-    
+
+
+// ToDos
 // Flight Contract https://github.com/smallbatch-apps/fairline-contract/blob/master/contracts/Flight.sol
  //modifier hasTicket(){
     //require(_ownerSeats[msg.sender].length > 0, "Passenger must have active QR for this trip");
