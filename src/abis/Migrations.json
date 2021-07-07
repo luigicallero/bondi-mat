@@ -1513,12 +1513,12 @@
     "80001": {
       "events": {},
       "links": {},
-      "address": "0x8dbaF5b01c5484161A2e9448922D4e22fe23Be49",
-      "transactionHash": "0x1cb6210ef5cfb5c9d7574463fa244cfb8e2b82fb357d936332936814832d1adb"
+      "address": "0x294E306BeF6Ba2D01776EDD71093347078Fd0965",
+      "transactionHash": "0xc92a869f8dea47cdcafe87e784aa1d7ed44634f6ce285684e919b4dae88a5160"
     }
   },
   "schemaVersion": "3.4.1",
-  "updatedAt": "2021-07-07T04:25:13.703Z",
+  "updatedAt": "2021-07-07T20:20:14.947Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

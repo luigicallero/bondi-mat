@@ -9,7 +9,6 @@ import dappImage from "../dapp.png";
 class Main extends Component {
   render() {
     return (
-      window.alert(this.props.priceContractAddress)
       <div id="content" className="mt-3">
         <table className="table table-borderless text-muted text-center">
           <thead>

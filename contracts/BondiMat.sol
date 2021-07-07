@@ -28,19 +28,25 @@ contract BondiMat{
         deployDate = block.timestamp;
         tripCost = 1000000000000000; // Initially 0.001 ETHER - ether is equivalent to MATIC in this contract code - 1 MATIC is approx 1USD at July 2021
         // start = block.timestamp + duration;
-        // revisar acá como ponerle el msg.sender y que lo tome como una address payable
-        // contractOwner = msg.sender;
     }
     
     // send Ether to smart contract from Julian video: https://www.youtube.com/watch?v=4k_ak3SFczc
-    function buyTicket(uint _numberOfTrips) external payable{
+    /*function buyTicket(uint _numberOfTrips) external payable{
         totalCost = _numberOfTrips * tripCost;
         // *** totalCost could be presented to customer or a preview before accepting (probably already done by Metamask)
         require(msg.value >= totalCost, "Not enough MATIC for this payment");
         _numberOfTrips = traveler[msg.sender].tripsLeft + _numberOfTrips;
         traveler[msg.sender] = Traveler(block.timestamp,_numberOfTrips);
     }
-    
+    */
+    // copying from "book" function from Flight Contract https://github.com/smallbatch-apps/fairline-contract/blob/master/contracts/Flight.sol
+    function buyTicket(uint _numberOfTrips) public payable{
+        totalCost = _numberOfTrips * tripCost;
+        require(msg.value == totalCost, "Not enough MATIC for this payment");
+        _numberOfTrips = traveler[msg.sender].tripsLeft + _numberOfTrips;
+        traveler[msg.sender] = Traveler(block.timestamp,_numberOfTrips);
+    }
+
     // *** Temporary trips Decrease function
     function usedTicket() external{
         traveler[msg.sender].tripsLeft -= 1;

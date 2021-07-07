@@ -5,6 +5,7 @@ import Navbar from "./Navbar"
 import Main from "./Main"
 import PageMain from "./pageMain"
 import SecondPage from "./secondPage"
+import QRcodePage from "./qrcode"
 import "./App.css"
 import polygon from "../polygon-logo.png"
 
@@ -77,9 +78,12 @@ class App extends Component {
     }
   }
 
-  //Function to Buy tickets - Seems like not calling the function with the amount of tickets in parenthesis
+  //Function to Buy tickets - Metamask alert: ALERT: Transaction Error. Exception thrown in contract code.
+  // Where is it specified the $$$ for metamask???
   buyTicket = (amount) => {
     this.setState({ loading: true })
+    const web3 = window.web3
+    amount = web3.utils.toWei(amount)
     this.state.BondiMatContract.methods
       .buyTicket(amount)
       .send({ from: this.state.account })
@@ -90,6 +94,8 @@ class App extends Component {
       
   //Function to Update the cost of tickets
   updateCost = (new_price) => {
+    const web3 = window.web3
+    new_price = web3.utils.toWei(new_price)
     this.state.BondiMatContract.methods
       .updateCost(new_price)
       .send({ from: this.state.account})
@@ -158,7 +164,9 @@ class App extends Component {
           updateCost={this.updateCost.bind(this)}
           //unstakeTokens={this.unstakeTokens.bind(this)}
           />
-        
+        <QRcodePage 
+          qrcode={this.state.account}
+          />
       </div>
     )
   }

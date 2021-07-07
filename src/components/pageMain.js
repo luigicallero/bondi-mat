@@ -1,13 +1,16 @@
 import React, { Component } from "react";
+import QRBondiCode from "./qrcode";
 
 class PageMain extends Component{
+       
     render(){
          
         return(            
         <div className="container" id="container">            
            <div className="pageone" id="pageone">
-                <div className="qr"><h3>{this.props.traveler}</h3><br/>
-                    <img  class="imagen"/>
+                <div className="qr"><h3>QR Code</h3><br/>
+                    <p><strong>Contract number:</strong> {this.props.traveler}</p>
+                    <QRBondiCode />
                 </div>
                     <div className="tripleft">
                         <h3>Trips Left</h3>
