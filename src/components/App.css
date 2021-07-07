@@ -9,22 +9,43 @@
     border: none;
     text-transform: capitalize;
 }
+@media(max-width:480px){
+  html{
+      font-size: 55%;
+  }
+  .imagen{
+    margin: 0%;
+    padding: 0%;
+    flex-direction:column;
+  
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+  }
+}
 
-header{    
+.navbar{  
+    position: fixed;  
     top: 0%;
     left: 0%;
     width: 100%;
     background-image: linear-gradient(90deg,blue, white);
-    box-shadow: 0 .5rem 1rem rgba(0,0, 0, .1);
+    box-shadow: 0 .5rem 1rem rgba(0,0, 0, .2);
     padding: 2rem 9%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
 }
-header .logo{
-    font-size: 3rem;
+.logo{
+    font-size: 2.5rem;
     color: #fff;
+   
+}
+.logo:hover{
+  text-decoration: none;
+    color: blue;
     text-shadow:
       0 0 5px #fff,
       0 0 10px #fff,
@@ -33,21 +54,9 @@ header .logo{
       0 0 80px #0ff,
       0 0 90px #0ff,
       0 0 100px #0ff,
-      0 0 150px #0ff;
-}
-header .logo:hover{
-    color: whitesmoke;
-    text-shadow:
-      0 0 1px #fff,
-      0 0 5px #fff,
-      0 0 10px #fff,
-      0 0 30px #0ff,
-      0 0 70px #0ff,
-      0 0 75px #0ff,
-      0 0 90px #0ff,
-      0 0 125px #0ff;
-      transform: scale(1.1);
-      transition: 1s
+      0 0 150px #0ff;      
+      transition: .5s;
+      
 }
 .menubar{
     color: blue;
@@ -55,6 +64,7 @@ header .logo:hover{
     padding: 5px 5px;
 }
 .menubar:hover{
+  text-decoration: none;
     color: #fff;
     text-shadow:
       0 0 5px #fff,
@@ -64,116 +74,26 @@ header .logo:hover{
       0 0 80px #0ff,
       0 0 90px #0ff,
       0 0 100px #0ff,
-      0 0 150px #0ff;
-      
+      0 0 150px #0ff;      
       transition: .5s;
   }
 
-
-@media(max-width:1200px){
-    html{
-        font-size: 55%;
-    }
-}
-@media(max-width:480px){
-    html{
-        font-size: 45%;
-    }
-    .container{
-      display: block;
-    }
-    .container2{
-      display: flex;
-      
-      justify-content: center;
-    }
-    .option{
-      display: block;
-      width: 40%;
-    }
-    .container img{
-      width: 30%;
-    }
-    
-    .trip-class{
-      width: 100%;
-      left: 0%;
-      margin-left: 0%;
-      padding-left: 10%;
-      padding-right: 10%;
-    }
-    .trip-box{
-      margin-left: 0%;
-      width: 300px;
-      padding-left: 0%;
-      align-content:center;
-    }
-    .trip-class .trip-box p{
-      position:absolute;
-      top: 10%;
-      
-      width: 300px;
-      font-size: 150%;
-    }
-    .trip-box img{  
-      z-index: -10;
-      width: auto;
-      opacity: .5;
-    }
-    .happyD{
-      position: absolute;
-      justify-content: center;
-      top: 45%;
-      width: 35%;
-      font-size: 20px;
-    }
-}
-.option{
-  width: 40%;
-  border: 2px solid black;
-  border-radius: 8%;
-  padding-left: 5%;
-  padding-top: 2%;
-  margin: 5px;
-}
-.option img{
-  display: flex;
-  width: 12rem;
-  height: auto;
-  align-items: center;
-  justify-content: center;
-}
 .container{
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 20px;
-  justify-content: center;
-  width: auto;
-}
-.submenu{
-  display: flex;
-  justify-content: center;
+  padding-top: 8%;
   width: 100%;
-  padding-left: 15%;
-  padding-right: 15%;
+  height: 100vh;
 }
-#container2{
-  display: none;
-  width: 100%;     
-}
-.container2{       
-    padding-left: 30%;
-    width: 100%;    
-    justify-content: center;      
-    }
 h3{
   background-image: linear-gradient(90deg,blue, white);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
   border-radius: 10px;
   justify-content: center;  
-  display: flex;
-  
+  display: flex;  
+  padding: 1%;
   width: 50%;
-  font-size: 2rem;
+  font-size: 18px;
   color: #fff;
   text-shadow:
   0 0 1px #fff,
@@ -185,26 +105,34 @@ h3{
   0 0 90px #0ff,
   0 0 125px #0ff;
 }
+h3:hover{
+  background: blue;
+  color: #fff;
+  text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 40px #0ff,
+      0 0 80px #0ff,
+      0 0 90px #0ff,
+      0 0 100px #0ff,
+      0 0 150px #0ff;      
+      transition: .5s;
+}
 
 .qrcode{
     display: none;
     justify-content: center;
-    width: 30%;
+    width: 50%;
     height: 300px;
     border: 2px solid black;
     border-radius: 8%;
     padding: 15px;
     margin: 35px;
+    
   }
 
-#text{
-  display: flex;
-  justify-content: center;
-  border-radius: 5px;
-  box-shadow: 0 .5rem 1rem rgba(0,0, 0, .1);
-  border: 1px solid blue;
-  height: 2rem;
-}
+
 h4{
   background-image: linear-gradient(90deg,blue, white);
   border-radius: 10px;
@@ -221,21 +149,6 @@ h4{
   0 0 75px #0ff,
   0 0 90px #0ff,
   0 0 125px #0ff;
-}
-#qrcode{
-  display: flex;
-  width: 150px;
-  height: auto;
-  padding-bottom: 4%;
-}
-
-
-#qr-data{
-  display: flex;
-  justify-content: center;
-  border-radius: 5px;
-  box-shadow: 0 .5rem 1rem rgba(0,0, 0, .1);
-  border: 1px solid blue;
 }
 .getcode{
     color: blue;
@@ -261,85 +174,117 @@ h4{
       transition: .5s;
       background-image: linear-gradient(90deg,blue, white);
 }
-#back{
-  display: none;
- }
 
-.back{
-  flex-wrap: wrap;
-}
-#trip-class{
-  display: none;
-}
-.trip-class{
-  
-  margin-top: 10px;
-  justify-content: center;
-  width: 100%;
-  align-content: center;  
-}
-.img{
+.imagen{
+  flex-direction:column;
+  background-image: url('descarga.png');
   background-size: cover;
   background-repeat: no-repeat;
   z-index: -10;
-  border-radius: 15px;
-  width: 100%;
-  height: 90%;
-  opacity: .3;  
+  width: 60%;
+  height: 70%;
+  padding-left: 3px;
 }
-.img-road{
-  background-size: cover;
-  background-repeat: no-repeat;
-  z-index: -10;
-  border-radius: 15px;
-  width: 100%;
-  height: 90%;
-  opacity: .3;  
-}
-.p-road{
-  position: absolute;
-  padding: 0% 1% 1% 1%;
-  top: 35%;
-  width: 35%;
-}
-.trip-box{
-
-  padding-top: 10px;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 50%;
-  border: 2px solid black;
-  border-radius: 8%; 
-}
-#chooseB{
-  display: none;
-  margin-top: 10px;
-  justify-items: center;
-  width: 480px;
-  height: auto;
-  border: 2px solid black;
-  border-radius: 8%;
-  padding: 10px;
-  align-content: center;
-  margin-left: 0%;  
-}
-.happy{
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-radius: 15px;
-  z-index: -10;
-  width: 100%;
-  height: auto;
-  opacity: .4;
-}
-.happyD{
-  position: absolute;
-  justify-content: center;
-  top: 45%;
-  width: 35%;
-  font-size: 20px;
-}
-.chooseB{
+.pageone{
   display: flex;
-  justify-content: center;
+}
+.qr{ 
+  display: block;
+  padding-left: 10%;
+  padding-top: 1%;  
+  margin: 1%;
+  border: 2px solid black;
+  justify-content: center;  
+  width: 60%;
+  height: 60vh;
+  border-radius: 15px;
+  box-shadow: 0 .5rem 1rem rgba(0,0, 0, .2);
+}
+
+.tripleft{
+  display: block;
+  padding-left: 10%;
+  padding-top: 1%;  
+  margin: 1%;
+  border: 2px solid black;
+  justify-content: center;  
+  width: 40%;
+  height: 60vh;
+  border-radius: 15px;
+  background-image: url('road.png');
+  background-size:150%;
+  background-repeat: no-repeat;
+  box-shadow: 0 .5rem 1rem rgba(0,0, 0, .2);
+  }
+  .baseone{
+    display: flex;
+    justify-content:center;
+    width: 100%;
+    padding: 2%;
+  }
+  .btn{
+    display: flex;
+    justify-content: center;
+    margin: 1%;
+    width: 100px;
+    border: 1px solid black;
+    border-radius: 15px;
+    color: blue;
+    font-size: 1rem;
+    padding: 5px 5px;   
+    cursor: pointer;  
+  }
+  .btn:hover{
+    background: blue;
+    color: #fff;
+    text-shadow:
+      0 0 5px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 40px #0ff,
+      0 0 80px #0ff,
+      0 0 90px #0ff,
+      0 0 100px #0ff,
+      0 0 150px #0ff;      
+      transition: .5s;
+  } 
+  #numbers{
+    font-size: 60px;
+    font-weight: bolder;
+    padding-top: 20%;
+  }
+  .pagetwo{
+    padding-top: 8%;
+    display: flex;
+    flex-direction:column;
+    padding-left: 30%;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+  }
+  .buytrip{
+    background-image: url('felicidad.png');
+    background-size: cover;
+    flex-direction: row;
+    width: 50%;
+    height: 450px;
+    border: 1px solid black;
+    border-radius: 15px;
+    justify-content: center;
+    padding: 2%;
+    box-shadow: 0 .5rem 1rem rgba(0,0, 0, .2);
+  }
+  
+  .tripbuy{
+    width: 30%;
+    height: 30px;
+    padding-left: 3%;
+    margin-bottom: 3%;
+    border: 1px solid blue;
+    border-radius: 10px;
+  }
+.price{
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 8%;
 }

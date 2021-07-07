@@ -3,8 +3,10 @@ import Web3 from "web3"
 import BondiMat from "../abis/BondiMat.json"
 import Navbar from "./Navbar"
 import Main from "./Main"
+import PageMain from "./pageMain"
+import SecondPage from "./secondPage"
 import "./App.css"
-import chainlink from "../chainlink.png"
+import polygon from "../polygon-logo.png"
 
 class App extends Component {
   async componentWillMount() {
@@ -34,17 +36,34 @@ class App extends Component {
       this.setState({ BondiMatContractAddress: BondiMatContractExists.address })
       this.setState({ BondiMatContract })
 
-      let tripsLeft = await BondiMatContract.methods.traveler(this.state.account).call()
-        .then(console.log);
-
+      /*let tripsLeft = await BondiMatContract.methods.traveler(this.state.account).call()
+        .then(console.log)
+      console.log(tripsLeft)
       this.setState({ tripsLeft })
+      */
 
-//*** This function is not working    
-      /*let balanceOfCont = await BondiMatContract.methods
-        .balanceOfCont()
-        .call()
-      this.setState({ balanceOfCont: balanceOfCont.toString() })
-    */
+      // Getting the Trip Cost from Contract
+      let tripCost = await BondiMatContract.methods.tripCost.call().call((error, result) => {});
+      tripCost = web3.utils.fromWei(tripCost)
+      this.setState({ tripCost})
+
+      //This function is not working    
+      var balanceOfCont = await BondiMatContract.methods.balanceOfCont().call({from: this.state.account})
+      console.log(balanceOfCont)
+      //this.setState({ balanceOfCont: balanceOfCont })
+    
+      //Function to Buy tickets - Seems like not calling the function with the amount of tickets in parenthesis
+      /*await BondiMatContract.methods.buyTicket(1).send({from: this.state.account}, function(error, transactionHash){
+        console.log(transactionHash)
+      });
+      */
+      
+        //await BondiMatContract.methods.buyTicket(this.state.account).call()
+      //.then(console.log)
+    //console.log(tripsLeft)
+    //this.setState({ tripsLeft })
+
+
     } else {
       window.alert("BondiMat contract not deployed to detected network. Please check that Metamask is in the correct Network: Polygon (MATIC)")
     }
@@ -71,11 +90,12 @@ class App extends Component {
     this.state = {
       account: "0x0",
       balance: 0,
-      tripsLeft: 0,
+      tripsLeft: 10,
       BondiMatContractAddress: "",
       loading: true,
-      image: chainlink,
+      image: polygon,
       tokenName: "LINK",
+      price: 0.07,
     }
   }
 
@@ -94,7 +114,6 @@ class App extends Component {
           image={this.state.image}
           BondiMatContractAddress={this.state.BondiMatContractAddress}
           balanceOfCont={this.state.balanceOfCont}
-          balance={this.state.balance}
         />
       )
     }
@@ -104,23 +123,17 @@ class App extends Component {
         <Navbar account={this.state.account} />
         <div className="container-fluid mt-5">
           <div className="row">
-            <main
-              role="main"
-              className="col-lg-12 ml-auto mr-auto"
-              style={{ maxWidth: "600px" }}
-            >
-              <div className="content mr-auto ml-auto">
-                <a
-                  href="https://alphachain.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                ></a>
-
-                {content}
-              </div>
-            </main>
           </div>
         </div>
+        <PageMain 
+          tripsLeft={this.state.tripsLeft}
+          traveler={this.state.account}
+        />
+        <SecondPage 
+          price={this.state.tripCost}
+          balance={this.state.balance}
+          />
+        
       </div>
     )
   }

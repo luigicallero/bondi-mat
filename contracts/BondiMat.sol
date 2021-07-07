@@ -8,10 +8,10 @@ pragma solidity ^0.6.6;
 // traveler should only see his own trips left
     
 contract BondiMat{
-    uint public totalCost;
+    uint256 public totalCost;
     address codeQR;
     address internal owner;
-    uint256 tripCost;
+    uint256 public tripCost;
     uint internal immutable deployDate; // Immutable variables are evaluated/assigned once at construction time and their value is copied to all the places in the code where they are accessed
     
     // Model a Traveler - Read/Write Travelers from DappUniversity at: https://www.dappuniversity.com/articles/solidity
@@ -26,7 +26,7 @@ contract BondiMat{
     constructor() public{
         owner = msg.sender;
         deployDate = block.timestamp;
-        tripCost = 1 ether; // ether is simil to MATIC - 1 MATIC is approx 1USD at July 2021
+        tripCost = 1000000000000000; // Initially 0.001 ETHER - ether is equivalent to MATIC in this contract code - 1 MATIC is approx 1USD at July 2021
         // start = block.timestamp + duration;
         // revisar acá como ponerle el msg.sender y que lo tome como una address payable
         // contractOwner = msg.sender;
@@ -46,11 +46,14 @@ contract BondiMat{
         traveler[msg.sender].tripsLeft -= 1;
     }
     
-    /** This provides traveler's QR code (wallet address)
-    function showQR() external view returns(address) {
-        return msg.sender;
+    function updateCost(uint256 _tripCost) external onlyOwner{
+        tripCost = _tripCost;
     }
-    */
+
+    // This provides 1 Trip Cost
+    function getTripCost() external view returns(uint256) {
+        return tripCost;
+    }
     
     // This provides Contract balance
     function balanceOfCont() external view onlyOwner returns(uint){

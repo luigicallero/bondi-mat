@@ -1,12 +1,4 @@
 import React, { Component } from "react";
-import bitcoinCoin from "../bitcoin.png";
-import dollarCoin from "../Dolar-coin.png";
-import bull from "../wallstreet.jpg";
-import dai from "../dai.png";
-import chainlink from "../chainlink.png";
-
-
-
 
 class Main extends Component {
   //window.alert(this.props.priceContractAddress)
@@ -18,6 +10,7 @@ class Main extends Component {
             <tr>
               <th scope="col">Your Current Matic: {this.props.balance}</th>
               <th scope="col">BondiMat Contract Address: {this.props.BondiMatContractAddress}</th>
+              <th scope="col">Trip Cost: {this.props.tripCost}</th>
             </tr>
           </thead>
         </table>  
