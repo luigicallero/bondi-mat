@@ -11,12 +11,12 @@ import polygon from "../polygon-logo.png"
 class App extends Component {
   async componentWillMount() {
     await this.loadWeb3() // Loading Metamask
-    //window.alert("Aquí estamos a punto de llamar a Metamask")
     await this.loadBlockchainData()
   }
 
   async loadBlockchainData() {
     const web3 = window.web3
+    // Load Traveler Wallet information
     const accounts = await web3.eth.getAccounts()
     this.setState({ account: accounts[0] })
 
@@ -52,14 +52,7 @@ class App extends Component {
       console.log(balanceOfCont)
       //this.setState({ balanceOfCont: balanceOfCont })
     
-      //Function to Buy tickets - Seems like not calling the function with the amount of tickets in parenthesis
-      /*await BondiMatContract.methods.buyTicket(1).send({from: this.state.account}, function(error, transactionHash){
-        console.log(transactionHash)
-      });
-      */
-      
-        //await BondiMatContract.methods.buyTicket(this.state.account).call()
-      //.then(console.log)
+
     //console.log(tripsLeft)
     //this.setState({ tripsLeft })
 
@@ -76,14 +69,43 @@ class App extends Component {
       window.web3 = new Web3(window.ethereum)
       await window.ethereum.enable()
     } else if (window.web3) {
-      window.web3 = new Web3(window.web3.currentProvider)
+        window.web3 = new Web3(window.web3.currentProvider)
     } else {
-      window.alert(
+        window.alert(
         "Non-Ethereum browser detected. You should consider trying MetaMask!"
       )
     }
   }
 
+  //Function to Buy tickets - Seems like not calling the function with the amount of tickets in parenthesis
+  buyTicket = (amount) => {
+    this.setState({ loading: true })
+    this.state.BondiMatContract.methods
+      .buyTicket(amount)
+      .send({ from: this.state.account })
+      .on("transactionHash", (hash) => {
+        this.setState({ loading: false })
+      })
+  };
+      
+  //Function to Update the cost of tickets
+  updateCost = (new_price) => {
+    this.state.BondiMatContract.methods
+      .updateCost(new_price)
+      .send({ from: this.state.account})
+      .on("transactionHash", (hash) => {
+        this.setState({ loading: false })
+      })  
+  };
+  
+      /*
+      await BondiMatContract.methods.buyTicket(1).send({from: this.state.account}, function(error, transactionHash){
+        console.log(transactionHash)
+      });
+      
+      await BondiMatContract.methods.buyTicket(this.state.account).call()
+      .then(console.log)
+      */
 
   constructor(props) {
     super(props)
@@ -132,6 +154,9 @@ class App extends Component {
         <SecondPage 
           price={this.state.tripCost}
           balance={this.state.balance}
+          buyTicket={this.buyTicket.bind(this)}
+          updateCost={this.updateCost.bind(this)}
+          //unstakeTokens={this.unstakeTokens.bind(this)}
           />
         
       </div>

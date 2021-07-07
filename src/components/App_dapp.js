@@ -102,9 +102,7 @@ class App extends Component {
     } else if (window.web3) {
       window.web3 = new Web3(window.web3.currentProvider)
     } else {
-      window.alert(
-        "Non-Ethereum browser detected. You should consider trying MetaMask!"
-      )
+      window.alert("Non-Ethereum browser detected. You should consider trying MetaMask!")
     }
   }
 
