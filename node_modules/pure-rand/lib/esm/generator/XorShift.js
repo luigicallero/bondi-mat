@@ -11,15 +11,32 @@ var XorShift128Plus = (function () {
     XorShift128Plus.prototype.max = function () {
         return 0x7fffffff;
     };
+    XorShift128Plus.prototype.clone = function () {
+        return new XorShift128Plus(this.s01, this.s00, this.s11, this.s10);
+    };
     XorShift128Plus.prototype.next = function () {
+        var nextRng = new XorShift128Plus(this.s01, this.s00, this.s11, this.s10);
+        var out = nextRng.unsafeNext();
+        return [out, nextRng];
+    };
+    XorShift128Plus.prototype.unsafeNext = function () {
         var a0 = this.s00 ^ (this.s00 << 23);
         var a1 = this.s01 ^ ((this.s01 << 23) | (this.s00 >>> 9));
         var b0 = a0 ^ this.s10 ^ ((a0 >>> 18) | (a1 << 14)) ^ ((this.s10 >>> 5) | (this.s11 << 27));
         var b1 = a1 ^ this.s11 ^ (a1 >>> 18) ^ (this.s11 >>> 5);
-        return [(this.s00 + this.s10) | 0, new XorShift128Plus(this.s11, this.s10, b1, b0)];
+        var out = (this.s00 + this.s10) | 0;
+        this.s01 = this.s11;
+        this.s00 = this.s10;
+        this.s11 = b1;
+        this.s10 = b0;
+        return out;
     };
     XorShift128Plus.prototype.jump = function () {
-        var rngRunner = this;
+        var nextRng = new XorShift128Plus(this.s01, this.s00, this.s11, this.s10);
+        nextRng.unsafeJump();
+        return nextRng;
+    };
+    XorShift128Plus.prototype.unsafeJump = function () {
         var ns01 = 0;
         var ns00 = 0;
         var ns11 = 0;
@@ -28,15 +45,18 @@ var XorShift128Plus = (function () {
         for (var i = 0; i !== 4; ++i) {
             for (var mask = 1; mask; mask <<= 1) {
                 if (jump[i] & mask) {
-                    ns01 ^= rngRunner.s01;
-                    ns00 ^= rngRunner.s00;
-                    ns11 ^= rngRunner.s11;
-                    ns10 ^= rngRunner.s10;
+                    ns01 ^= this.s01;
+                    ns00 ^= this.s00;
+                    ns11 ^= this.s11;
+                    ns10 ^= this.s10;
                 }
-                rngRunner = rngRunner.next()[1];
+                this.unsafeNext();
             }
         }
-        return new XorShift128Plus(ns01, ns00, ns11, ns10);
+        this.s01 = ns01;
+        this.s00 = ns00;
+        this.s11 = ns11;
+        this.s10 = ns10;
     };
     return XorShift128Plus;
 }());

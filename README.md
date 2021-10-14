@@ -19,20 +19,14 @@ https://youtu.be/AvGKibhzZx0
 npm install truffle -g
 ```
 
-2. Setup repo
-
-```bash
-mkdir BondiMat
-cd BondiMat/
-```
-
-3. Copy from Repossitory
+2. Copy from Repossitory
 
 ```bash
 git clone https://github.com/luigicallero/bondi-mat
+cd bondi-mat/
 ```
 
-4. Install dependencies by running:
+3. Install dependencies by running:
 
 ```bash
 sudo npm install
@@ -43,7 +37,7 @@ sudo npm install
 For deploying to the Polygon test network (Mumbai), Truffle will use `truffle-hdwallet-provider` for your mnemonic and an RPC URL. Set your environment variables `$RPC_URL` and `$MNEMONIC` before running and make sure you have enough MATICs in your wallet (0.3 Matics should be fine; Matic Faucet: https://faucet.matic.network):
 
 ```bash
-export mnemonic='YOUR_12_SECRET_METAMASK'
+export MNEMONIC='YOUR_12_SECRET_METAMASK'
 
 truffle migrate --network matic --reset
 ```
