@@ -8,10 +8,9 @@ pragma solidity ^0.6.6;
 // traveler should only see his own trips left
     
 contract BondiMat{
-    uint256 public totalCost;
     address codeQR;
     address internal owner;
-    uint256 public tripCost;
+    uint256 public tripPrice;
     uint internal immutable deployDate; // Immutable variables are evaluated/assigned once at construction time and their value is copied to all the places in the code where they are accessed
     
     // Model a Traveler - Read/Write Travelers from DappUniversity at: https://www.dappuniversity.com/articles/solidity
@@ -26,13 +25,13 @@ contract BondiMat{
     constructor() public{
         owner = msg.sender;
         deployDate = block.timestamp;
-        tripCost = 1000000000000000; // Initially 0.001 ETHER - ether is equivalent to MATIC in this contract code - 1 MATIC is approx 1USD at July 2021
+        tripPrice = 1000000000000000; // Initially 0.001 ETHER - ether is equivalent to MATIC in this contract code - 1 MATIC is approx 1USD at July 2021
         // start = block.timestamp + duration;
     }
     
     // send Ether to smart contract from Julian video: https://www.youtube.com/watch?v=4k_ak3SFczc
     /*function buyTicket(uint _numberOfTrips) external payable{
-        totalCost = _numberOfTrips * tripCost;
+        totalCost = _numberOfTrips * tripPrice;
         // *** totalCost could be presented to customer or a preview before accepting (probably already done by Metamask)
         require(msg.value >= totalCost, "Not enough MATIC for this payment");
         _numberOfTrips = traveler[msg.sender].tripsLeft + _numberOfTrips;
@@ -41,10 +40,20 @@ contract BondiMat{
     */
     // copying from "book" function from Flight Contract https://github.com/smallbatch-apps/fairline-contract/blob/master/contracts/Flight.sol
     function buyTicket(uint _numberOfTrips) public payable{
-        totalCost = _numberOfTrips * tripCost;
-        require(msg.value == totalCost, "Not enough MATIC for this payment");
+        require(msg.value > 0, "Ticket Price is greater than zero");
+        require(msg.value == _numberOfTrips * tripPrice, "Not enough MATIC for this payment");
+        require(_numberOfTrips > 0, "Number of trips cannot be zero");
         _numberOfTrips = traveler[msg.sender].tripsLeft + _numberOfTrips;
         traveler[msg.sender] = Traveler(block.timestamp,_numberOfTrips);
+    }
+
+    function getTotalCost(uint _numberOfTrips) external view returns(uint256){
+        uint256 test = _numberOfTrips * tripPrice;
+        return test;
+    }
+    
+    function getValue () public payable returns(uint256){
+        return msg.value;
     }
 
     // *** Temporary trips Decrease function
@@ -52,13 +61,13 @@ contract BondiMat{
         traveler[msg.sender].tripsLeft -= 1;
     }
     
-    function updateCost(uint256 _tripCost) external onlyOwner{
-        tripCost = _tripCost;
+    function updateCost(uint256 _tripPrice) external onlyOwner{
+        tripPrice = _tripPrice;
     }
 
     // This provides 1 Trip Cost
-    function getTripCost() external view returns(uint256) {
-        return tripCost;
+    function gettripPrice() external view returns(uint256) {
+        return tripPrice;
     }
     
     // This provides Contract balance
