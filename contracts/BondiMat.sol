@@ -9,7 +9,7 @@ pragma solidity ^0.6.6;
     
 contract BondiMat{
     address codeQR;
-    address internal owner;
+    address payable public owner;
     uint256 public tripPrice;
     uint internal immutable deployDate; // Immutable variables are evaluated/assigned once at construction time and their value is copied to all the places in the code where they are accessed
     
@@ -25,39 +25,31 @@ contract BondiMat{
     constructor() public{
         owner = msg.sender;
         deployDate = block.timestamp;
-        tripPrice = 1000000000000000; // Initially 0.001 ETHER - ether is equivalent to MATIC in this contract code - 1 MATIC is approx 1USD at July 2021
+        tripPrice = 100 wei; // Initially 0.001 ETHER - ether is equivalent to MATIC in this contract code - 1 MATIC is approx 1USD at July 2021
         // start = block.timestamp + duration;
     }
     
     // send Ether to smart contract from Julian video: https://www.youtube.com/watch?v=4k_ak3SFczc
-    /*function buyTicket(uint _numberOfTrips) external payable{
-        totalCost = _numberOfTrips * tripPrice;
-        // *** totalCost could be presented to customer or a preview before accepting (probably already done by Metamask)
-        require(msg.value >= totalCost, "Not enough MATIC for this payment");
-        _numberOfTrips = traveler[msg.sender].tripsLeft + _numberOfTrips;
-        traveler[msg.sender] = Traveler(block.timestamp,_numberOfTrips);
-    }
-    */
+    // how to use States with enum form Escrow contract from Blockgeeks: https://www.youtube.com/watch?v=6Mry6oAQVXU 
+    // add events from Hotelbooking from Greg dappuniversity: https://www.youtube.com/watch?v=oB1SahPR0MQ
     // copying from "book" function from Flight Contract https://github.com/smallbatch-apps/fairline-contract/blob/master/contracts/Flight.sol
-    function buyTicket(uint _numberOfTrips) public payable{
-        require(msg.value > 0, "Ticket Price is greater than zero");
-        require(msg.value == _numberOfTrips * tripPrice, "Not enough MATIC for this payment");
+    function buyTicket(uint _numberOfTrips) external payable{
+        require(msg.value > 0, "You are trying to pay with Zero MATIC");
+        require(msg.value >= _numberOfTrips * tripPrice, "Not enough MATIC for this payment");
         require(_numberOfTrips > 0, "Number of trips cannot be zero");
         _numberOfTrips = traveler[msg.sender].tripsLeft + _numberOfTrips;
         traveler[msg.sender] = Traveler(block.timestamp,_numberOfTrips);
     }
+    
 
     function getTotalCost(uint _numberOfTrips) external view returns(uint256){
         uint256 test = _numberOfTrips * tripPrice;
         return test;
     }
     
-    function getValue () public payable returns(uint256){
-        return msg.value;
-    }
-
     // *** Temporary trips Decrease function
     function usedTicket() external{
+        require(traveler[msg.sender].tripsLeft > 0, "You already have 0 tickets");
         traveler[msg.sender].tripsLeft -= 1;
     }
     
@@ -71,7 +63,7 @@ contract BondiMat{
     }
     
     // This provides Contract balance
-    function balanceOfCont() external view onlyOwner returns(uint){
+    function balanceOfContract() external view onlyOwner returns(uint){
         return address(this).balance;
     }
     
@@ -86,6 +78,7 @@ contract BondiMat{
 // ToDos
     //*** function to show current MATIC available or it could be shown when buying ... uint balance; // to show the user what the amount of MATIC he has to purchase  
     //*** function to update the cost of trips (onlyOwner or delegated)
+    //*** add states and events
     
 // Flight Contract https://github.com/smallbatch-apps/fairline-contract/blob/master/contracts/Flight.sol
  //modifier hasTicket(){
