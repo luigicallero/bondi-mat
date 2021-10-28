@@ -33,14 +33,24 @@ contract BondiMat{
     // how to use States with enum form Escrow contract from Blockgeeks: https://www.youtube.com/watch?v=6Mry6oAQVXU 
     // add events from Hotelbooking from Greg dappuniversity: https://www.youtube.com/watch?v=oB1SahPR0MQ
     // copying from "book" function from Flight Contract https://github.com/smallbatch-apps/fairline-contract/blob/master/contracts/Flight.sol
-    function buyTicket(uint _numberOfTrips) external payable{
+    /*function buyTicket(uint _numberOfTrips) external payable{
         require(msg.value > 0, "You are trying to pay with Zero MATIC");
         require(msg.value >= _numberOfTrips * tripPrice, "Not enough MATIC for this payment");
         require(_numberOfTrips > 0, "Number of trips cannot be zero");
         _numberOfTrips = traveler[msg.sender].tripsLeft + _numberOfTrips;
         traveler[msg.sender] = Traveler(block.timestamp,_numberOfTrips);
     }
+    */
+    // Safer to do a transferFrom to avoid a hacker to modify transfer from Frontend
+    function buyTicket(uint _numberOfTrips ) external payable {
+        require(msg.value > 0, "You are trying to pay with Zero MATIC");
+        uint256 totalCost = _numberOfTrips * tripPrice;
+        require(msg.value >= totalCost, "Not enough MATIC for this payment");
+        require(_numberOfTrips > 0, "Number of trips cannot be zero");
+        _numberOfTrips = traveler[msg.sender].tripsLeft + _numberOfTrips;
+        traveler[msg.sender] = Traveler(block.timestamp,_numberOfTrips);
     
+    }
 
     function getTotalCost(uint _numberOfTrips) external view returns(uint256){
         uint256 test = _numberOfTrips * tripPrice;

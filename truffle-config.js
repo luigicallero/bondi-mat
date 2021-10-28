@@ -10,7 +10,7 @@ module.exports = {
   networks: {
     development: {
       host: "127.0.0.1",
-      port: 7545,
+      port: 8545,
       network_id: "*" // Match any network id
     },
     live: {
@@ -33,8 +33,8 @@ module.exports = {
       //Mumbai RPC addresses
       //provider: () => new HDWalletProvider(mnemonic, rpc_url),
       //provider: () => new HDWalletProvider(mnemonic, `https://rpc-mumbai.matic.today`),
-      //provider: () => new HDWalletProvider(mnemonic, `https://matic-mumbai.chainstacklabs.com`),
-      provider: () => new HDWalletProvider(mnemonic, `https://rpc-mumbai.maticvigil.com`), //Worked on 2021-10-06 17:40hs
+      provider: () => new HDWalletProvider(mnemonic, `https://matic-mumbai.chainstacklabs.com`),
+      //provider: () => new HDWalletProvider(mnemonic, `https://rpc-mumbai.maticvigil.com`), //Worked on 2021-10-06 17:40hs
       //provider: () => new HDWalletProvider(mnemonic, `https://matic-testnet-archive-rpc.bwarelabs.com`),
       network_id: 80001, // to be used with Public Polygon Mumbai rpc
       //network_id: '*', // to be used with Infura Polygon Mumbai rpc

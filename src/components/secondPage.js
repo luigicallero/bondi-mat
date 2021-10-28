@@ -36,9 +36,9 @@ class SecondPage extends Component{
                         className="btn btn-link btn-block btn-sm"
                         onClick={(event) => {
                             event.preventDefault();
-                            let totalCost = document.getElementById('totaltrip').innerHTML;
+                            let numberOfTrips = document.getElementById('tripbuy').innerHTML;
                             //console.log(totalCost);
-                            this.props.buyTicket(totalCost);
+                            this.props.buyTicket(numberOfTrips);
                         }}
                         > Buy Tickets
                     </button>
