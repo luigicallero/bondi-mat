@@ -22,6 +22,11 @@ contract BondiMat{
 
     mapping(address => Traveler) public traveler;
 
+    event TripsPurchased(
+        address account,
+        uint256 numberOfTrips
+    );
+
     constructor() public{
         owner = msg.sender;
         deployDate = block.timestamp;
@@ -33,14 +38,7 @@ contract BondiMat{
     // how to use States with enum form Escrow contract from Blockgeeks: https://www.youtube.com/watch?v=6Mry6oAQVXU 
     // add events from Hotelbooking from Greg dappuniversity: https://www.youtube.com/watch?v=oB1SahPR0MQ
     // copying from "book" function from Flight Contract https://github.com/smallbatch-apps/fairline-contract/blob/master/contracts/Flight.sol
-    /*function buyTicket(uint _numberOfTrips) external payable{
-        require(msg.value > 0, "You are trying to pay with Zero MATIC");
-        require(msg.value >= _numberOfTrips * tripPrice, "Not enough MATIC for this payment");
-        require(_numberOfTrips > 0, "Number of trips cannot be zero");
-        _numberOfTrips = traveler[msg.sender].tripsLeft + _numberOfTrips;
-        traveler[msg.sender] = Traveler(block.timestamp,_numberOfTrips);
-    }
-    */
+
     // Safer to do a transferFrom to avoid a hacker to modify transfer from Frontend
     function buyTicket(uint _numberOfTrips ) external payable {
         require(msg.value > 0, "You are trying to pay with Zero MATIC");
@@ -49,6 +47,7 @@ contract BondiMat{
         require(_numberOfTrips > 0, "Number of trips cannot be zero");
         _numberOfTrips = traveler[msg.sender].tripsLeft + _numberOfTrips;
         traveler[msg.sender] = Traveler(block.timestamp,_numberOfTrips);
+        emit TripsPurchased(msg.sender, _numberOfTrips );
     
     }
 
@@ -57,6 +56,10 @@ contract BondiMat{
         return test;
     }
     
+    function userTickets() external view returns(uint){
+        return traveler[msg.sender].tripsLeft;
+    }
+
     // *** Temporary trips Decrease function
     function usedTicket() external{
         require(traveler[msg.sender].tripsLeft > 0, "You already have 0 tickets");
@@ -83,7 +86,6 @@ contract BondiMat{
         require(msg.sender == owner, "I am afraid only Contract Owner can perform this type of tasks");
         _;
     }
-
 
 // ToDos
     //*** function to show current MATIC available or it could be shown when buying ... uint balance; // to show the user what the amount of MATIC he has to purchase  

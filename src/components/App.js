@@ -31,12 +31,12 @@ class App extends Component {
     const BondiMatContractExists = BondiMat.networks[networkId]
     if (BondiMatContractExists) {
       const BondiMatContract = new web3.eth.Contract(
-      BondiMat.abi, 
-      BondiMatContractExists.address
+        BondiMat.abi, 
+        BondiMatContractExists.address
       )
       this.setState({ BondiMatContractAddress: BondiMatContractExists.address })
       this.setState({ BondiMatContract })
-
+      
       /*let tripsLeft = await BondiMatContract.methods.traveler(this.state.account).call()
         .then(console.log)
       console.log(tripsLeft)
@@ -44,12 +44,16 @@ class App extends Component {
       */
 
       // Getting the Trip Cost from Contract
-      let tripCost = await BondiMatContract.methods.tripCost.call().call((error, result) => {});
+      let tripPrice = await BondiMatContract.methods.tripPrice().call((error, result) => {});
+      let tripCost = tripPrice //missing * number of trips
+      console.log ("Price for Trip",tripPrice)
+      //let tripCost = await BondiMatContract.methods.tripCost.call().call((error, result) => {});
       tripCost = web3.utils.fromWei(tripCost)
       this.setState({ tripCost})
+    
 
       //This function is not working    
-      var balanceOfCont = await BondiMatContract.methods.balanceOfCont().call({from: this.state.account})
+      var balanceOfCont = await BondiMatContract.methods.balanceOfContract().call({from: this.state.account})
       console.log(balanceOfCont)
       //this.setState({ balanceOfCont: balanceOfCont })
     

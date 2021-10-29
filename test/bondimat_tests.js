@@ -16,6 +16,7 @@ contract('Bondi-MAT deployed', (accounts) => {
   before(async () => {
     // Contracts Deployed
     BondiMatContract = await BondiMat.new()
+    console.log("Contract Address: ", BondiMatContract.address)
   })
 
   describe('Contracts deployment', async () => {
@@ -33,7 +34,7 @@ contract('Bondi-MAT deployed', (accounts) => {
       result = await BondiMatContract.buyTicket(10, {from: accounts[1], value: '1000'})
     })
 
-    it('10 trips purchased by User1 is 1000 WEI of MATIC', async () => {
+    it('User1 purchased 10 trips. Balance in contract is now 1000 WEI of MATIC', async () => {
       //const numberOfTrips = '10'
       //const totalCost = await BondiMatContract.buyTicket.call(numberOfTrips)
       //console.log(totalCost)
@@ -42,6 +43,12 @@ contract('Bondi-MAT deployed', (accounts) => {
       assert.equal( bondimatBalance.toString(), 1000)
       //console.log(bondimatBalance)
       //await BondiMatContract.approve(BondiMatContract.address, totalCost, { from: accounts[1] });
+    })
+
+    it('User1 finds 10 tickets in his balance', async () => {
+      const userTickets = await BondiMatContract.userTickets.call({from: accounts[1]})
+      //console.log("Amount of tickets for user1: ", userTickets)
+      assert.equal( userTickets, 10)
     })
   })
 
