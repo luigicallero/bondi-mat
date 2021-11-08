@@ -91,7 +91,7 @@ class App extends Component {
     console.log(numberOfTrips)
     this.state.BondiMatContract.methods
       .buyTicket(numberOfTrips)
-      .send({ from: this.state.account })
+      .send({ from: this.state.account, value: '1000'})
       .on("transactionHash", (hash) => {
         this.setState({ loading: false })
       })

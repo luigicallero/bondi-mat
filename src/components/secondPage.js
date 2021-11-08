@@ -5,6 +5,8 @@ class SecondPage extends Component{
     constructor(props){
         super(props);   
         this.incrementar = this.incrementar.bind(this);
+        this.state = { tripbuy: 3 };
+        this.handleChange = this.handleChange.bind(this);
     } 
     
     incrementar(){
@@ -15,6 +17,17 @@ class SecondPage extends Component{
         totaltrip.innerHTML = calcula // Shows the result of calculation on change
     } 
     
+    handleChange(event) {    
+        this.setState({tripbuy: event.target.value});
+        console.log("Here trips: ", this.state.tripbuy);
+        let priceNow = this.props.price;  // Trip Cost from Contract
+        console.log("Here Price: ", this.props.price);
+        let tripbuyNow = this.state.tripbuy;
+        let totaltrip = document.getElementById('totaltrip'); // Initially 0
+        const calcula = priceNow * tripbuyNow; 
+        totaltrip.innerHTML = calcula
+    }
+
     render(){
         return(            
             <div className="pagetwo" id="pagetwo">
@@ -26,7 +39,8 @@ class SecondPage extends Component{
                         <p className="price" id='price'>{this.props.price}</p>
                     </div>
                     <h5>How many trips you want?:</h5>
-                    <input type="number" ref={this.tripbuy} id='tripbuy' className="tripbuy" onChange={this.incrementar}/><br/><br/>
+                        {/* <input type="number" value={this.state.tripbuy} ref={this.tripbuy} id='tripbuy' className="tripbuy" onChange={this.incrementar}/><br/><br/> */}
+                        <input type="number" value={this.state.tripbuy} id='tripbuy' className="tripbuy" onChange={this.handleChange}/><br/><br/>
                     <h5>Total Cost in MATIC:</h5>
                     <div>
                         <p className="price" id='totaltrip'>0</p>
@@ -36,8 +50,8 @@ class SecondPage extends Component{
                         className="btn btn-link btn-block btn-sm"
                         onClick={(event) => {
                             event.preventDefault();
-                            let numberOfTrips = document.getElementById('tripbuy').innerHTML;
-                            //console.log(totalCost);
+                            let numberOfTrips = this.state.tripbuy;
+                            console.log(numberOfTrips);
                             this.props.buyTicket(numberOfTrips);
                         }}
                         > Buy Tickets
@@ -63,7 +77,3 @@ class SecondPage extends Component{
     }
 }
 export default SecondPage;
-
-// Statement "Your Current Matic is xxx" should be in blue if enough Matic or in Red if not enough
-// Delete "Back" button
-// "Calculate" button should be "Buy" button, only enabled when enough Matic
