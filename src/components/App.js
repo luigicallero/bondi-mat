@@ -82,16 +82,17 @@ class App extends Component {
     }
   }
 
-  //Function to Buy tickets - Metamask alert: ALERT: Transaction Error. Exception thrown in contract code.
-  // Where is it specified the $$$ for metamask???
-  buyTicket = (numberOfTrips) => {
+  //Function to Buy tickets
+  async buyTicket (numberOfTrips) {
     this.setState({ loading: true })
-    //const web3 = window.web3
-    //amount = web3.utils.toWei(amount)
-    console.log(numberOfTrips)
+    // Calculate again the cost of the trip
+    let tripPrice = await this.state.BondiMatContract.methods.tripPrice().call((error, result) => {});
+    let tripCost = tripPrice * numberOfTrips
+    this.setState({ tripCost})
+    // Execute the buyTicket Function
     this.state.BondiMatContract.methods
       .buyTicket(numberOfTrips)
-      .send({ from: this.state.account, value: '1000'})
+      .send({ from: this.state.account, value: tripCost })
       .on("transactionHash", (hash) => {
         this.setState({ loading: false })
       })
