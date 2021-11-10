@@ -45,11 +45,14 @@ class App extends Component {
 
       // Getting the Trip Cost from Contract
       let tripPrice = await BondiMatContract.methods.tripPrice().call((error, result) => {});
-      let tripCost = tripPrice //missing * number of trips
-      console.log ("Price for Trip",tripPrice)
-      //let tripCost = await BondiMatContract.methods.tripCost.call().call((error, result) => {});
-      tripCost = web3.utils.fromWei(tripCost)
-      this.setState({ tripCost})
+      tripPrice = web3.utils.fromWei(tripPrice )
+      this.setState({ tripPrice })
+      console.log ("Price for Trip in Matic: ", tripPrice)
+      
+      // let tripCost = tripPrice //missing * number of trips
+      // //let tripCost = await BondiMatContract.methods.tripCost.call().call((error, result) => {});
+      // tripCost = web3.utils.fromWei(tripCost)
+      // this.setState({ tripCost})
     
 
       //This function is not working    
@@ -164,7 +167,7 @@ class App extends Component {
           traveler={this.state.account}
         />
         <SecondPage 
-          price={this.state.tripCost}
+          tripPrice={this.state.tripPrice}
           balance={this.state.balance}
           buyTicket={this.buyTicket.bind(this)}
           updateCost={this.updateCost.bind(this)}
