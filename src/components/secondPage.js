@@ -16,12 +16,11 @@ class SecondPage extends Component{
         const calcula = price * tripbuy; 
         totaltrip.innerHTML = calcula // Shows the result of calculation on change
     }  */
-    
+
     handleChange(event) {    
         let priceNow = this.props.tripPrice; 
         this.setState({tripbuy: event.target.value});
         let tripbuyNow = document.getElementById('tripbuy').value;
-        //let tripbuyNow = this.state.tripbuy;
         let totaltrip = document.getElementById('totaltrip');
         const calcula = priceNow * tripbuyNow;
         totaltrip.innerHTML = calcula
@@ -42,7 +41,7 @@ class SecondPage extends Component{
                         <input type="number" value={this.state.tripbuy} id='tripbuy' className="tripbuy" onChange={this.handleChange}/><br/><br/>
                     <h5>Total Cost in MATIC:</h5>
                     <div>
-                        <p className="price" id='totaltrip'> $$ </p>
+                        <p className="price" id='totaltrip'>{this.props.tripPrice * this.state.tripbuy }</p>
                     </div>
                     <button
                         type="submit"

@@ -49,12 +49,6 @@ class App extends Component {
       this.setState({ tripPrice })
       console.log ("Price for Trip in Matic: ", tripPrice)
       
-      // let tripCost = tripPrice //missing * number of trips
-      // //let tripCost = await BondiMatContract.methods.tripCost.call().call((error, result) => {});
-      // tripCost = web3.utils.fromWei(tripCost)
-      // this.setState({ tripCost})
-    
-
       //This function is not working    
       var balanceOfCont = await BondiMatContract.methods.balanceOfContract().call({from: this.state.account})
       console.log(balanceOfCont)
