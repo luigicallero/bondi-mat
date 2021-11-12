@@ -92,6 +92,7 @@ class App extends Component {
       .send({ from: this.state.account, value: tripCost })
       .on("transactionHash", (hash) => {
         this.setState({ loading: false })
+        window.location.reload(false)
       })
   };
       
@@ -104,6 +105,7 @@ class App extends Component {
       .send({ from: this.state.account})
       .on("transactionHash", (hash) => {
         this.setState({ loading: false })
+        window.location.reload(false)
       })  
   };
   

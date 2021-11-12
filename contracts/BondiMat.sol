@@ -30,7 +30,7 @@ contract BondiMat{
     constructor() public{
         owner = msg.sender;
         deployDate = block.timestamp;
-        tripPrice = 100 wei; // Initially 0.001 ETHER - ether is equivalent to MATIC in this contract code - 1 MATIC is approx 1USD at July 2021
+        tripPrice = 1 ether; // Initially 1 ETHER - ether is equivalent to MATIC in this contract code - 1 MATIC is approx 1USD at July 2021
         // start = block.timestamp + duration;
     }
     
