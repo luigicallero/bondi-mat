@@ -81,18 +81,23 @@ class App extends Component {
 
   //Function to Buy tickets
   async buyTicket (numberOfTrips) {
+    const web3 = window.web3
     this.setState({ loading: true })
     // Calculate again the cost of the trip
-    let tripPrice = await this.state.BondiMatContract.methods.tripPrice().call((error, result) => {});
+    let tripPrice = await this.state.BondiMatContract.methods.tripPrice().call((error, result) => {})
+    // to avoid scientific notation when calculation times goes beyond 1000 Ethers, I change it to Ether and then after calculation I change it back to Wei
+    tripPrice = web3.utils.fromWei( tripPrice ,'ether')
     let tripCost = tripPrice * numberOfTrips
+    tripCost = web3.utils.toWei( tripCost.toString() , 'ether')
+    console.log("numberofTrips and tripPrice and tripCost", numberOfTrips, tripPrice, tripCost)
     this.setState({ tripCost})
     // Execute the buyTicket Function
-    this.state.BondiMatContract.methods
+    await this.state.BondiMatContract.methods
       .buyTicket(numberOfTrips)
       .send({ from: this.state.account, value: tripCost })
       .on("transactionHash", (hash) => {
         this.setState({ loading: false })
-        window.location.reload(false)
+        //window.location.reload(false)
       })
   };
       
