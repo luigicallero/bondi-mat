@@ -36,22 +36,17 @@ class App extends Component {
       )
       this.setState({ BondiMatContractAddress: BondiMatContractExists.address })
       this.setState({ BondiMatContract })
-      
-      /*let tripsLeft = await BondiMatContract.methods.traveler(this.state.account).call()
-        .then(console.log)
-      console.log(tripsLeft)
+      // Getting the Trips from current user
+      const tripsLeft = await BondiMatContract.methods.userTickets().call((error, result) => {});
       this.setState({ tripsLeft })
-      */
-
       // Getting the Trip Cost from Contract
       let tripPrice = await BondiMatContract.methods.tripPrice().call((error, result) => {});
       tripPrice = web3.utils.fromWei(tripPrice )
       this.setState({ tripPrice })
-      console.log ("Price for Trip in Matic: ", tripPrice)
       
-      //This function is not working    
+      // Getting the Contract Balance (only Owner)    
       var balanceOfCont = await BondiMatContract.methods.balanceOfContract().call({from: this.state.account})
-      console.log(balanceOfCont)
+      console.log("balance del contrato", balanceOfCont)
       //this.setState({ balanceOfCont: balanceOfCont })
     
 
@@ -138,7 +133,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.tripsLeft)
     let content
     if (this.state.loading) {
       content = (
