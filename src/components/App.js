@@ -36,9 +36,11 @@ class App extends Component {
       )
       this.setState({ BondiMatContractAddress: BondiMatContractExists.address })
       this.setState({ BondiMatContract })
+      
       // Getting the Trips from current user
       const tripsLeft = await BondiMatContract.methods.userTickets().call((error, result) => {});
       this.setState({ tripsLeft })
+      console.log("Trips left: ", tripsLeft);
       // Getting the Trip Cost from Contract
       let tripPrice = await BondiMatContract.methods.tripPrice().call((error, result) => {});
       tripPrice = web3.utils.fromWei(tripPrice )
