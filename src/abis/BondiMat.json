@@ -113,7 +113,13 @@
       "constant": true
     },
     {
-      "inputs": [],
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_buyer",
+          "type": "address"
+        }
+      ],
       "name": "userTickets",
       "outputs": [
         {
@@ -175,22 +181,22 @@
       "constant": true
     }
   ],
-  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"numberOfTrips\",\"type\":\"uint256\"}],\"name\":\"TripsPurchased\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"balanceOfContract\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_numberOfTrips\",\"type\":\"uint256\"}],\"name\":\"buyTicket\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_numberOfTrips\",\"type\":\"uint256\"}],\"name\":\"getTotalCost\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gettripPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"traveler\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"buyDate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tripsLeft\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tripPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tripPrice\",\"type\":\"uint256\"}],\"name\":\"updateCost\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"usedTicket\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"userTickets\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/BondiMat.sol\":\"BondiMat\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/BondiMat.sol\":{\"keccak256\":\"0x91bf196b595d81b400773bcc08ad412bdd7d065bedc475fb69817b6a4c084fdd\",\"urls\":[\"bzz-raw://6792e61e58601972411b7267b99c285fe6647e098d6a10bf9d4f224a458bc222\",\"dweb:/ipfs/QmYLJsaVMBVzWh4DGTFyPVxx6cMmyNc24SC1FKYCRW51kw\"]}},\"version\":1}",
-  "bytecode": "0x60a060405234801561001057600080fd5b5033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055504260808181525050670de0b6b3a764000060028190555060805161091761007e600039506109176000f3fe6080604052600436106100915760003560e01c8063920bda7b11610059578063920bda7b14610211578063b8b04e9514610228578063d8edfde714610253578063e6c7c4561461027e578063f87554bc146102a957610091565b8063112021541461009657806323c5a0881461010257806367dd74ca1461013d578063765f20791461016b5780638da5cb5b146101ba575b600080fd5b3480156100a257600080fd5b506100e5600480360360208110156100b957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102d4565b604051808381526020018281526020019250505060405180910390f35b34801561010e57600080fd5b5061013b6004803603602081101561012557600080fd5b81019080803590602001909291905050506102f8565b005b6101696004803603602081101561015357600080fd5b81019080803590602001909291905050506103a8565b005b34801561017757600080fd5b506101a46004803603602081101561018e57600080fd5b81019080803590602001909291905050506105fa565b6040518082815260200191505060405180910390f35b3480156101c657600080fd5b506101cf61060d565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561021d57600080fd5b50610226610633565b005b34801561023457600080fd5b5061023d61073e565b6040518082815260200191505060405180910390f35b34801561025f57600080fd5b50610268610744565b6040518082815260200191505060405180910390f35b34801561028a57600080fd5b5061029361078e565b6040518082815260200191505060405180910390f35b3480156102b557600080fd5b506102be610853565b6040518082815260200191505060405180910390f35b60036020528060005260406000206000915090508060000154908060010154905082565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461039e576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603e81526020018061085e603e913960400191505060405180910390fd5b8060028190555050565b60003411610401576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602581526020018061089c6025913960400191505060405180910390fd5b60006002548202905080341015610463576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260218152602001806108c16021913960400191505060405180910390fd5b600082116104d9576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601e8152602001807f4e756d626572206f662074726970732063616e6e6f74206265207a65726f000081525060200191505060405180910390fd5b81600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010154019150604051806040016040528042815260200183815250600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000155602082015181600101559050507f58122d20634e00f4322c478ebc9cd0e4f977471b37915f7fb67c51d2201e78453383604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a15050565b6000806002548302905080915050919050565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010154116106eb576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601a8152602001807f596f7520616c726561647920686176652030207469636b65747300000000000081525060200191505060405180910390fd5b6001600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160008282540392505081905550565b60025481565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010154905090565b6000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610836576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603e81526020018061085e603e913960400191505060405180910390fd5b3073ffffffffffffffffffffffffffffffffffffffff1631905090565b600060025490509056fe4920616d20616672616964206f6e6c7920436f6e7472616374204f776e65722063616e20706572666f726d20746869732074797065206f66207461736b73596f752061726520747279696e6720746f207061792077697468205a65726f204d415449434e6f7420656e6f756768204d4154494320666f722074686973207061796d656e74a264697066735822122023200d9c2f997340b5a7f51e97a5b408c17c6ffead02fa7eff464719530ecbc164736f6c63430006060033",
-  "deployedBytecode": "0x6080604052600436106100915760003560e01c8063920bda7b11610059578063920bda7b14610211578063b8b04e9514610228578063d8edfde714610253578063e6c7c4561461027e578063f87554bc146102a957610091565b8063112021541461009657806323c5a0881461010257806367dd74ca1461013d578063765f20791461016b5780638da5cb5b146101ba575b600080fd5b3480156100a257600080fd5b506100e5600480360360208110156100b957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506102d4565b604051808381526020018281526020019250505060405180910390f35b34801561010e57600080fd5b5061013b6004803603602081101561012557600080fd5b81019080803590602001909291905050506102f8565b005b6101696004803603602081101561015357600080fd5b81019080803590602001909291905050506103a8565b005b34801561017757600080fd5b506101a46004803603602081101561018e57600080fd5b81019080803590602001909291905050506105fa565b6040518082815260200191505060405180910390f35b3480156101c657600080fd5b506101cf61060d565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561021d57600080fd5b50610226610633565b005b34801561023457600080fd5b5061023d61073e565b6040518082815260200191505060405180910390f35b34801561025f57600080fd5b50610268610744565b6040518082815260200191505060405180910390f35b34801561028a57600080fd5b5061029361078e565b6040518082815260200191505060405180910390f35b3480156102b557600080fd5b506102be610853565b6040518082815260200191505060405180910390f35b60036020528060005260406000206000915090508060000154908060010154905082565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff161461039e576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603e81526020018061085e603e913960400191505060405180910390fd5b8060028190555050565b60003411610401576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252602581526020018061089c6025913960400191505060405180910390fd5b60006002548202905080341015610463576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260218152602001806108c16021913960400191505060405180910390fd5b600082116104d9576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601e8152602001807f4e756d626572206f662074726970732063616e6e6f74206265207a65726f000081525060200191505060405180910390fd5b81600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010154019150604051806040016040528042815260200183815250600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000155602082015181600101559050507f58122d20634e00f4322c478ebc9cd0e4f977471b37915f7fb67c51d2201e78453383604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a15050565b6000806002548302905080915050919050565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010154116106eb576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601a8152602001807f596f7520616c726561647920686176652030207469636b65747300000000000081525060200191505060405180910390fd5b6001600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160008282540392505081905550565b60025481565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010154905090565b6000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610836576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603e81526020018061085e603e913960400191505060405180910390fd5b3073ffffffffffffffffffffffffffffffffffffffff1631905090565b600060025490509056fe4920616d20616672616964206f6e6c7920436f6e7472616374204f776e65722063616e20706572666f726d20746869732074797065206f66207461736b73596f752061726520747279696e6720746f207061792077697468205a65726f204d415449434e6f7420656e6f756768204d4154494320666f722074686973207061796d656e74a264697066735822122023200d9c2f997340b5a7f51e97a5b408c17c6ffead02fa7eff464719530ecbc164736f6c63430006060033",
+  "metadata": "{\"compiler\":{\"version\":\"0.6.6+commit.6c089d02\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"account\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"numberOfTrips\",\"type\":\"uint256\"}],\"name\":\"TripsPurchased\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"balanceOfContract\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_numberOfTrips\",\"type\":\"uint256\"}],\"name\":\"buyTicket\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_numberOfTrips\",\"type\":\"uint256\"}],\"name\":\"getTotalCost\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"gettripPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"owner\",\"outputs\":[{\"internalType\":\"address payable\",\"name\":\"\",\"type\":\"address\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"\",\"type\":\"address\"}],\"name\":\"traveler\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"buyDate\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"tripsLeft\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"tripPrice\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_tripPrice\",\"type\":\"uint256\"}],\"name\":\"updateCost\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"usedTicket\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_buyer\",\"type\":\"address\"}],\"name\":\"userTickets\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"project:/contracts/BondiMat.sol\":\"BondiMat\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/BondiMat.sol\":{\"keccak256\":\"0x66f858dc91f864860da689edc8be14bd92eef775acc48fbd83c2fab8f8c5939b\",\"urls\":[\"bzz-raw://a684b322ef8bb4e58ee1dcafec2e6f42e2eec9674b10de5ce2d94f2275518557\",\"dweb:/ipfs/QmNVN2hkZjXmnz5heSonMDwsJfQNFheAmGB8A16tKbbjQr\"]}},\"version\":1}",
+  "bytecode": "0x60a060405234801561001057600080fd5b5033600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055504260808181525050670de0b6b3a764000060028190555060805161095361007e600039506109536000f3fe6080604052600436106100915760003560e01c80638da5cb5b116100595780638da5cb5b1461021f578063920bda7b14610276578063b8b04e951461028d578063e6c7c456146102b8578063f87554bc146102e357610091565b8063112021541461009657806323c5a0881461010257806367dd74ca1461013d578063765f20791461016b57806380017f4e146101ba575b600080fd5b3480156100a257600080fd5b506100e5600480360360208110156100b957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061030e565b604051808381526020018281526020019250505060405180910390f35b34801561010e57600080fd5b5061013b6004803603602081101561012557600080fd5b8101908080359060200190929190505050610332565b005b6101696004803603602081101561015357600080fd5b81019080803590602001909291905050506103e2565b005b34801561017757600080fd5b506101a46004803603602081101561018e57600080fd5b8101908080359060200190929190505050610634565b6040518082815260200191505060405180910390f35b3480156101c657600080fd5b50610209600480360360208110156101dd57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610647565b6040518082815260200191505060405180910390f35b34801561022b57600080fd5b50610234610693565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561028257600080fd5b5061028b6106b9565b005b34801561029957600080fd5b506102a26107c4565b6040518082815260200191505060405180910390f35b3480156102c457600080fd5b506102cd6107ca565b6040518082815260200191505060405180910390f35b3480156102ef57600080fd5b506102f861088f565b6040518082815260200191505060405180910390f35b60036020528060005260406000206000915090508060000154908060010154905082565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146103d8576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603e81526020018061089a603e913960400191505060405180910390fd5b8060028190555050565b6000341161043b576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260258152602001806108d86025913960400191505060405180910390fd5b6000600254820290508034101561049d576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260218152602001806108fd6021913960400191505060405180910390fd5b60008211610513576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601e8152602001807f4e756d626572206f662074726970732063616e6e6f74206265207a65726f000081525060200191505060405180910390fd5b81600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010154019150604051806040016040528042815260200183815250600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000155602082015181600101559050507f58122d20634e00f4322c478ebc9cd0e4f977471b37915f7fb67c51d2201e78453383604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a15050565b6000806002548302905080915050919050565b6000600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101549050919050565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001015411610771576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601a8152602001807f596f7520616c726561647920686176652030207469636b65747300000000000081525060200191505060405180910390fd5b6001600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160008282540392505081905550565b60025481565b6000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610872576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603e81526020018061089a603e913960400191505060405180910390fd5b3073ffffffffffffffffffffffffffffffffffffffff1631905090565b600060025490509056fe4920616d20616672616964206f6e6c7920436f6e7472616374204f776e65722063616e20706572666f726d20746869732074797065206f66207461736b73596f752061726520747279696e6720746f207061792077697468205a65726f204d415449434e6f7420656e6f756768204d4154494320666f722074686973207061796d656e74a2646970667358221220f6897f92975e4fb083192d170427097d0e33e44a2774a2ac993bfd9a6322544b64736f6c63430006060033",
+  "deployedBytecode": "0x6080604052600436106100915760003560e01c80638da5cb5b116100595780638da5cb5b1461021f578063920bda7b14610276578063b8b04e951461028d578063e6c7c456146102b8578063f87554bc146102e357610091565b8063112021541461009657806323c5a0881461010257806367dd74ca1461013d578063765f20791461016b57806380017f4e146101ba575b600080fd5b3480156100a257600080fd5b506100e5600480360360208110156100b957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff16906020019092919050505061030e565b604051808381526020018281526020019250505060405180910390f35b34801561010e57600080fd5b5061013b6004803603602081101561012557600080fd5b8101908080359060200190929190505050610332565b005b6101696004803603602081101561015357600080fd5b81019080803590602001909291905050506103e2565b005b34801561017757600080fd5b506101a46004803603602081101561018e57600080fd5b8101908080359060200190929190505050610634565b6040518082815260200191505060405180910390f35b3480156101c657600080fd5b50610209600480360360208110156101dd57600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff169060200190929190505050610647565b6040518082815260200191505060405180910390f35b34801561022b57600080fd5b50610234610693565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34801561028257600080fd5b5061028b6106b9565b005b34801561029957600080fd5b506102a26107c4565b6040518082815260200191505060405180910390f35b3480156102c457600080fd5b506102cd6107ca565b6040518082815260200191505060405180910390f35b3480156102ef57600080fd5b506102f861088f565b6040518082815260200191505060405180910390f35b60036020528060005260406000206000915090508060000154908060010154905082565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16146103d8576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603e81526020018061089a603e913960400191505060405180910390fd5b8060028190555050565b6000341161043b576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260258152602001806108d86025913960400191505060405180910390fd5b6000600254820290508034101561049d576040517f08c379a00000000000000000000000000000000000000000000000000000000081526004018080602001828103825260218152602001806108fd6021913960400191505060405180910390fd5b60008211610513576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601e8152602001807f4e756d626572206f662074726970732063616e6e6f74206265207a65726f000081525060200191505060405180910390fd5b81600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010154019150604051806040016040528042815260200183815250600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008201518160000155602082015181600101559050507f58122d20634e00f4322c478ebc9cd0e4f977471b37915f7fb67c51d2201e78453383604051808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020018281526020019250505060405180910390a15050565b6000806002548302905080915050919050565b6000600360008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600101549050919050565b600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019081526020016000206001015411610771576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252601a8152602001807f596f7520616c726561647920686176652030207469636b65747300000000000081525060200191505060405180910390fd5b6001600360003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060010160008282540392505081905550565b60025481565b6000600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614610872576040517f08c379a000000000000000000000000000000000000000000000000000000000815260040180806020018281038252603e81526020018061089a603e913960400191505060405180910390fd5b3073ffffffffffffffffffffffffffffffffffffffff1631905090565b600060025490509056fe4920616d20616672616964206f6e6c7920436f6e7472616374204f776e65722063616e20706572666f726d20746869732074797065206f66207461736b73596f752061726520747279696e6720746f207061792077697468205a65726f204d415449434e6f7420656e6f756768204d4154494320666f722074686973207061796d656e74a2646970667358221220f6897f92975e4fb083192d170427097d0e33e44a2774a2ac993bfd9a6322544b64736f6c63430006060033",
   "immutableReferences": {},
-  "sourceMap": "345:3931:0:-:0;;;1140:281;5:9:-1;2:2;;;27:1;24;17:12;2:2;1140:281:0;1178:10;1170:5;;:18;;;;;;;;;;;;;;;;;;1211:15;1198:28;;;;;;1248:7;1236:9;:19;;;;345:3931;;;;;;;;;",
-  "deployedSourceMap": "345:3931:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;12:1:-1;9;2:12;1000:44:0;;5:9:-1;2:2;;;27:1;24;17:12;2:2;1000:44:0;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;1000:44:0;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;3034:97;;5:9:-1;2:2;;;27:1;24;17:12;2:2;3034:97:0;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;3034:97:0;;;;;;;;;;;;;;;;;:::i;:::-;;1983:553;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;1983:553:0;;;;;;;;;;;;;;;;;:::i;:::-;;2542:152;;5:9:-1;2:2;;;27:1;24;17:12;2:2;2542:152:0;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;2542:152:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;388:28;;5:9:-1;2:2;;;27:1;24;17:12;2:2;388:28:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;2859:165;;5:9:-1;2:2;;;27:1;24;17:12;2:2;2859:165:0;;;:::i;:::-;;422:24;;5:9:-1;2:2;;;27:1;24;17:12;2:2;422:24:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;2704:104;;5:9:-1;2:2;;;27:1;24;17:12;2:2;2704:104:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;3306:111;;5:9:-1;2:2;;;27:1;24;17:12;2:2;3306:111:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;3170:88;;5:9:-1;2:2;;;27:1;24;17:12;2:2;3170:88:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1000:44;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;3034:97::-;3569:5;;;;;;;;;;;3555:19;;:10;:19;;;3547:94;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3114:10:::1;3102:9;:22;;;;3034:97:::0;:::o;1983:553::-;2071:1;2059:9;:13;2051:63;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2124:17;2161:9;;2144:14;:26;2124:46;;2201:9;2188;:22;;2180:68;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2283:1;2266:14;:18;2258:61;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2379:14;2346:8;:20;2355:10;2346:20;;;;;;;;;;;;;;;:30;;;:47;2329:64;;2426:40;;;;;;;;2435:15;2426:40;;;;2451:14;2426:40;;;2403:8;:20;2412:10;2403:20;;;;;;;;;;;;;;;:63;;;;;;;;;;;;;;;;;;;2481:43;2496:10;2508:14;2481:43;;;;;;;;;;;;;;;;;;;;;;;;;;;;1983:553;;:::o;2542:152::-;2607:7;2625:12;2657:9;;2640:14;:26;2625:41;;2683:4;2676:11;;;2542:152;;;:::o;388:28::-;;;;;;;;;;;;;:::o;2859:165::-;2940:1;2907:8;:20;2916:10;2907:20;;;;;;;;;;;;;;;:30;;;:34;2899:73;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3016:1;2982:8;:20;2991:10;2982:20;;;;;;;;;;;;;;;:30;;;:35;;;;;;;;;;;2859:165::o;422:24::-;;;;:::o;2704:104::-;2749:4;2771:8;:20;2780:10;2771:20;;;;;;;;;;;;;;;:30;;;2764:37;;2704:104;:::o;3306:111::-;3367:4;3569:5;;;;;;;;;;;3555:19;;:10;:19;;;3547:94;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3397:4:::1;3389:21;;;3382:28;;3306:111:::0;:::o;3170:88::-;3216:7;3242:9;;3235:16;;3170:88;:::o",
-  "source": "// SPDX-License-Identifier: UNLICENSED\n//pragma solidity ^0.8.4;\npragma solidity ^0.6.6;\n\n// https://docs.openzeppelin.com/contracts/2.x/\n// import working only if you add the contract with nmp: 'npm install @openzeppelin/contracts'\n// import \"@openzeppelin/contracts/token/ERC20/IERC20.sol\";\n// traveler should only see his own trips left\n    \ncontract BondiMat{\n    address codeQR;\n    address payable public owner;\n    uint256 public tripPrice;\n    uint internal immutable deployDate; // Immutable variables are evaluated/assigned once at construction time and their value is copied to all the places in the code where they are accessed\n    \n    // Model a Traveler - Read/Write Travelers from DappUniversity at: https://www.dappuniversity.com/articles/solidity\n    struct Traveler{\n        // *** buyDate seems no longer important is it??\n        uint buyDate; // to be used with traveler wallet address to generate QR code\n        uint tripsLeft; // measuring the amount of days left\n    }\n\n    mapping(address => Traveler) public traveler;\n\n    event TripsPurchased(\n        address account,\n        uint256 numberOfTrips\n    );\n\n    constructor() public{\n        owner = msg.sender;\n        deployDate = block.timestamp;\n        tripPrice = 1 ether; // Initially 1 ETHER - ether is equivalent to MATIC in this contract code - 1 MATIC is approx 1USD at July 2021\n        // start = block.timestamp + duration;\n    }\n    \n    // send Ether to smart contract from Julian video: https://www.youtube.com/watch?v=4k_ak3SFczc\n    // how to use States with enum form Escrow contract from Blockgeeks: https://www.youtube.com/watch?v=6Mry6oAQVXU \n    // add events from Hotelbooking from Greg dappuniversity: https://www.youtube.com/watch?v=oB1SahPR0MQ\n    // copying from \"book\" function from Flight Contract https://github.com/smallbatch-apps/fairline-contract/blob/master/contracts/Flight.sol\n\n    // Safer to do a transferFrom to avoid a hacker to modify transfer from Frontend\n    function buyTicket(uint _numberOfTrips ) external payable {\n        require(msg.value > 0, \"You are trying to pay with Zero MATIC\");\n        uint256 totalCost = _numberOfTrips * tripPrice;\n        require(msg.value >= totalCost, \"Not enough MATIC for this payment\");\n        require(_numberOfTrips > 0, \"Number of trips cannot be zero\");\n        _numberOfTrips = traveler[msg.sender].tripsLeft + _numberOfTrips;\n        traveler[msg.sender] = Traveler(block.timestamp,_numberOfTrips);\n        emit TripsPurchased(msg.sender, _numberOfTrips );\n    \n    }\n\n    function getTotalCost(uint _numberOfTrips) external view returns(uint256){\n        uint256 test = _numberOfTrips * tripPrice;\n        return test;\n    }\n    \n    function userTickets() external view returns(uint){\n        return traveler[msg.sender].tripsLeft;\n    }\n\n    // *** Temporary trips Decrease function\n    function usedTicket() external{\n        require(traveler[msg.sender].tripsLeft > 0, \"You already have 0 tickets\");\n        traveler[msg.sender].tripsLeft -= 1;\n    }\n    \n    function updateCost(uint256 _tripPrice) external onlyOwner{\n        tripPrice = _tripPrice;\n    }\n\n    // This provides 1 Trip Cost\n    function gettripPrice() external view returns(uint256) {\n        return tripPrice;\n    }\n    \n    // This provides Contract balance\n    function balanceOfContract() external view onlyOwner returns(uint){\n        return address(this).balance;\n    }\n    \n\n    // Good info about it in https://www.dappuniversity.com/articles/solidity-tutorial#3\n    modifier onlyOwner(){\n        require(msg.sender == owner, \"I am afraid only Contract Owner can perform this type of tasks\");\n        _;\n    }\n\n// ToDos\n    //*** function to show current MATIC available or it could be shown when buying ... uint balance; // to show the user what the amount of MATIC he has to purchase  \n    //*** function to update the cost of trips (onlyOwner or delegated)\n    //*** add states and events\n    \n// Flight Contract https://github.com/smallbatch-apps/fairline-contract/blob/master/contracts/Flight.sol\n //modifier hasTicket(){\n    //require(_ownerSeats[msg.sender].length > 0, \"Passenger must have active QR for this trip\");\n    //_;\n    //}\n\n  //modifier hasTicket(){\n    //require(_contractOwner = owner)\n    //_;\n    //}\n\n}\n\n//Notes:\n    // https://ethereum.stackexchange.com/questions/729/how-to-concatenate-strings-in-solidity\n    //function append(string a, string b) internal pure returns (string) {\n       // return string(abi.encodePacked(a, b));\n    //}\n",
+  "sourceMap": "345:3941:0:-:0;;;1140:281;5:9:-1;2:2;;;27:1;24;17:12;2:2;1140:281:0;1178:10;1170:5;;:18;;;;;;;;;;;;;;;;;;1211:15;1198:28;;;;;;1248:7;1236:9;:19;;;;345:3941;;;;;;;;;",
+  "deployedSourceMap": "345:3941:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;12:1:-1;9;2:12;1000:44:0;;5:9:-1;2:2;;;27:1;24;17:12;2:2;1000:44:0;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;1000:44:0;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;3044:97;;5:9:-1;2:2;;;27:1;24;17:12;2:2;3044:97:0;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;3044:97:0;;;;;;;;;;;;;;;;;:::i;:::-;;1983:553;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;1983:553:0;;;;;;;;;;;;;;;;;:::i;:::-;;2542:152;;5:9:-1;2:2;;;27:1;24;17:12;2:2;2542:152:0;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;2542:152:0;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;2704:114;;5:9:-1;2:2;;;27:1;24;17:12;2:2;2704:114:0;;;;;;15:2:-1;10:3;7:11;4:2;;;31:1;28;21:12;4:2;2704:114:0;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;388:28;;5:9:-1;2:2;;;27:1;24;17:12;2:2;388:28:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;2869:165;;5:9:-1;2:2;;;27:1;24;17:12;2:2;2869:165:0;;;:::i;:::-;;422:24;;5:9:-1;2:2;;;27:1;24;17:12;2:2;422:24:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;3316:111;;5:9:-1;2:2;;;27:1;24;17:12;2:2;3316:111:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;3180:88;;5:9:-1;2:2;;;27:1;24;17:12;2:2;3180:88:0;;;:::i;:::-;;;;;;;;;;;;;;;;;;;1000:44;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;3044:97::-;3579:5;;;;;;;;;;;3565:19;;:10;:19;;;3557:94;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3124:10:::1;3112:9;:22;;;;3044:97:::0;:::o;1983:553::-;2071:1;2059:9;:13;2051:63;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2124:17;2161:9;;2144:14;:26;2124:46;;2201:9;2188;:22;;2180:68;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2283:1;2266:14;:18;2258:61;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2379:14;2346:8;:20;2355:10;2346:20;;;;;;;;;;;;;;;:30;;;:47;2329:64;;2426:40;;;;;;;;2435:15;2426:40;;;;2451:14;2426:40;;;2403:8;:20;2412:10;2403:20;;;;;;;;;;;;;;;:63;;;;;;;;;;;;;;;;;;;2481:43;2496:10;2508:14;2481:43;;;;;;;;;;;;;;;;;;;;;;;;;;;;1983:553;;:::o;2542:152::-;2607:7;2625:12;2657:9;;2640:14;:26;2625:41;;2683:4;2676:11;;;2542:152;;;:::o;2704:114::-;2763:4;2785:8;:16;2794:6;2785:16;;;;;;;;;;;;;;;:26;;;2778:33;;2704:114;;;:::o;388:28::-;;;;;;;;;;;;;:::o;2869:165::-;2950:1;2917:8;:20;2926:10;2917:20;;;;;;;;;;;;;;;:30;;;:34;2909:73;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3026:1;2992:8;:20;3001:10;2992:20;;;;;;;;;;;;;;;:30;;;:35;;;;;;;;;;;2869:165::o;422:24::-;;;;:::o;3316:111::-;3377:4;3579:5;;;;;;;;;;;3565:19;;:10;:19;;;3557:94;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3407:4:::1;3399:21;;;3392:28;;3316:111:::0;:::o;3180:88::-;3226:7;3252:9;;3245:16;;3180:88;:::o",
+  "source": "// SPDX-License-Identifier: UNLICENSED\n//pragma solidity ^0.8.4;\npragma solidity ^0.6.6;\n\n// https://docs.openzeppelin.com/contracts/2.x/\n// import working only if you add the contract with nmp: 'npm install @openzeppelin/contracts'\n// import \"@openzeppelin/contracts/token/ERC20/IERC20.sol\";\n// traveler should only see his own trips left\n    \ncontract BondiMat{\n    address codeQR;\n    address payable public owner;\n    uint256 public tripPrice;\n    uint internal immutable deployDate; // Immutable variables are evaluated/assigned once at construction time and their value is copied to all the places in the code where they are accessed\n    \n    // Model a Traveler - Read/Write Travelers from DappUniversity at: https://www.dappuniversity.com/articles/solidity\n    struct Traveler{\n        // *** buyDate seems no longer important is it??\n        uint buyDate; // to be used with traveler wallet address to generate QR code\n        uint tripsLeft; // measuring the amount of days left\n    }\n\n    mapping(address => Traveler) public traveler;\n\n    event TripsPurchased(\n        address account,\n        uint256 numberOfTrips\n    );\n\n    constructor() public{\n        owner = msg.sender;\n        deployDate = block.timestamp;\n        tripPrice = 1 ether; // Initially 1 ETHER - ether is equivalent to MATIC in this contract code - 1 MATIC is approx 1USD at July 2021\n        // start = block.timestamp + duration;\n    }\n    \n    // send Ether to smart contract from Julian video: https://www.youtube.com/watch?v=4k_ak3SFczc\n    // how to use States with enum form Escrow contract from Blockgeeks: https://www.youtube.com/watch?v=6Mry6oAQVXU \n    // add events from Hotelbooking from Greg dappuniversity: https://www.youtube.com/watch?v=oB1SahPR0MQ\n    // copying from \"book\" function from Flight Contract https://github.com/smallbatch-apps/fairline-contract/blob/master/contracts/Flight.sol\n\n    // Safer to do a transferFrom to avoid a hacker to modify transfer from Frontend\n    function buyTicket(uint _numberOfTrips ) external payable {\n        require(msg.value > 0, \"You are trying to pay with Zero MATIC\");\n        uint256 totalCost = _numberOfTrips * tripPrice;\n        require(msg.value >= totalCost, \"Not enough MATIC for this payment\");\n        require(_numberOfTrips > 0, \"Number of trips cannot be zero\");\n        _numberOfTrips = traveler[msg.sender].tripsLeft + _numberOfTrips;\n        traveler[msg.sender] = Traveler(block.timestamp,_numberOfTrips);\n        emit TripsPurchased(msg.sender, _numberOfTrips );\n    \n    }\n\n    function getTotalCost(uint _numberOfTrips) external view returns(uint256){\n        uint256 test = _numberOfTrips * tripPrice;\n        return test;\n    }\n    \n    function userTickets(address _buyer) external view returns(uint){\n        return traveler[_buyer].tripsLeft;\n    }\n\n    // *** Temporary trips Decrease function\n    function usedTicket() external{\n        require(traveler[msg.sender].tripsLeft > 0, \"You already have 0 tickets\");\n        traveler[msg.sender].tripsLeft -= 1;\n    }\n    \n    function updateCost(uint256 _tripPrice) external onlyOwner{\n        tripPrice = _tripPrice;\n    }\n\n    // This provides 1 Trip Cost\n    function gettripPrice() external view returns(uint256) {\n        return tripPrice;\n    }\n    \n    // This provides Contract balance\n    function balanceOfContract() external view onlyOwner returns(uint){\n        return address(this).balance;\n    }\n    \n\n    // Good info about it in https://www.dappuniversity.com/articles/solidity-tutorial#3\n    modifier onlyOwner(){\n        require(msg.sender == owner, \"I am afraid only Contract Owner can perform this type of tasks\");\n        _;\n    }\n\n// ToDos\n    //*** function to show current MATIC available or it could be shown when buying ... uint balance; // to show the user what the amount of MATIC he has to purchase  \n    //*** function to update the cost of trips (onlyOwner or delegated)\n    //*** add states and events\n    \n// Flight Contract https://github.com/smallbatch-apps/fairline-contract/blob/master/contracts/Flight.sol\n //modifier hasTicket(){\n    //require(_ownerSeats[msg.sender].length > 0, \"Passenger must have active QR for this trip\");\n    //_;\n    //}\n\n  //modifier hasTicket(){\n    //require(_contractOwner = owner)\n    //_;\n    //}\n\n}\n\n//Notes:\n    // https://ethereum.stackexchange.com/questions/729/how-to-concatenate-strings-in-solidity\n    //function append(string a, string b) internal pure returns (string) {\n       // return string(abi.encodePacked(a, b));\n    //}\n",
   "sourcePath": "/home/luisca/blockchain/bondi-mat/contracts/BondiMat.sol",
   "ast": {
     "absolutePath": "project:/contracts/BondiMat.sol",
     "exportedSymbols": {
       "BondiMat": [
-        202
+        203
       ]
     },
-    "id": 203,
+    "id": 204,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -211,9 +217,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 202,
+        "id": 203,
         "linearizedBaseContracts": [
-          202
+          203
         ],
         "name": "BondiMat",
         "nodeType": "ContractDefinition",
@@ -225,7 +231,7 @@
             "name": "codeQR",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 202,
+            "scope": 203,
             "src": "368:14:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -255,7 +261,7 @@
             "name": "owner",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 202,
+            "scope": 203,
             "src": "388:28:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -285,7 +291,7 @@
             "name": "tripPrice",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 202,
+            "scope": 203,
             "src": "422:24:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -313,7 +319,7 @@
             "name": "deployDate",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 202,
+            "scope": 203,
             "src": "452:34:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -397,7 +403,7 @@
             ],
             "name": "Traveler",
             "nodeType": "StructDefinition",
-            "scope": 202,
+            "scope": 203,
             "src": "769:225:0",
             "visibility": "public"
           },
@@ -409,7 +415,7 @@
             "name": "traveler",
             "nodeType": "VariableDeclaration",
             "overrides": null,
-            "scope": 202,
+            "scope": 203,
             "src": "1000:44:0",
             "stateVariable": true,
             "storageLocation": "default",
@@ -728,7 +734,7 @@
               "parameters": [],
               "src": "1160:0:0"
             },
-            "scope": 202,
+            "scope": 203,
             "src": "1140:281:0",
             "stateMutability": "nonpayable",
             "virtual": false,
@@ -1637,7 +1643,7 @@
               "parameters": [],
               "src": "2041:0:0"
             },
-            "scope": 202,
+            "scope": 203,
             "src": "1983:553:0",
             "stateMutability": "payable",
             "virtual": false,
@@ -1832,7 +1838,7 @@
               ],
               "src": "2606:9:0"
             },
-            "scope": 202,
+            "scope": 203,
             "src": "2542:152:0",
             "stateMutability": "view",
             "virtual": false,
@@ -1840,9 +1846,9 @@
           },
           {
             "body": {
-              "id": 131,
+              "id": 132,
               "nodeType": "Block",
-              "src": "2754:54:0",
+              "src": "2768:50:0",
               "statements": [
                 {
                   "expression": {
@@ -1851,45 +1857,29 @@
                       "argumentTypes": null,
                       "baseExpression": {
                         "argumentTypes": null,
-                        "id": 125,
+                        "id": 127,
                         "name": "traveler",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
                         "referencedDeclaration": 18,
-                        "src": "2771:8:0",
+                        "src": "2785:8:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Traveler_$14_storage_$",
                           "typeString": "mapping(address => struct BondiMat.Traveler storage ref)"
                         }
                       },
-                      "id": 128,
+                      "id": 129,
                       "indexExpression": {
                         "argumentTypes": null,
-                        "expression": {
-                          "argumentTypes": null,
-                          "id": 126,
-                          "name": "msg",
-                          "nodeType": "Identifier",
-                          "overloadedDeclarations": [],
-                          "referencedDeclaration": -15,
-                          "src": "2780:3:0",
-                          "typeDescriptions": {
-                            "typeIdentifier": "t_magic_message",
-                            "typeString": "msg"
-                          }
-                        },
-                        "id": 127,
-                        "isConstant": false,
-                        "isLValue": false,
-                        "isPure": false,
-                        "lValueRequested": false,
-                        "memberName": "sender",
-                        "nodeType": "MemberAccess",
-                        "referencedDeclaration": null,
-                        "src": "2780:10:0",
+                        "id": 128,
+                        "name": "_buyer",
+                        "nodeType": "Identifier",
+                        "overloadedDeclarations": [],
+                        "referencedDeclaration": 122,
+                        "src": "2794:6:0",
                         "typeDescriptions": {
-                          "typeIdentifier": "t_address_payable",
-                          "typeString": "address payable"
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
                         }
                       },
                       "isConstant": false,
@@ -1897,13 +1887,13 @@
                       "isPure": false,
                       "lValueRequested": false,
                       "nodeType": "IndexAccess",
-                      "src": "2771:20:0",
+                      "src": "2785:16:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_struct$_Traveler_$14_storage",
                         "typeString": "struct BondiMat.Traveler storage ref"
                       }
                     },
-                    "id": 129,
+                    "id": 130,
                     "isConstant": false,
                     "isLValue": true,
                     "isPure": false,
@@ -1911,22 +1901,22 @@
                     "memberName": "tripsLeft",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": 13,
-                    "src": "2771:30:0",
+                    "src": "2785:26:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 124,
-                  "id": 130,
+                  "functionReturnParameters": 126,
+                  "id": 131,
                   "nodeType": "Return",
-                  "src": "2764:37:0"
+                  "src": "2778:33:0"
                 }
               ]
             },
             "documentation": null,
-            "functionSelector": "d8edfde7",
-            "id": 132,
+            "functionSelector": "80017f4e",
+            "id": 133,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -1934,24 +1924,54 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 121,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "2724:2:0"
-            },
-            "returnParameters": {
-              "id": 124,
+              "id": 123,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 123,
+                  "id": 122,
+                  "mutability": "mutable",
+                  "name": "_buyer",
+                  "nodeType": "VariableDeclaration",
+                  "overrides": null,
+                  "scope": 133,
+                  "src": "2725:14:0",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 121,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "2725:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "2724:16:0"
+            },
+            "returnParameters": {
+              "id": 126,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 125,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 132,
-                  "src": "2749:4:0",
+                  "scope": 133,
+                  "src": "2763:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -1959,10 +1979,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 122,
+                    "id": 124,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "2749:4:0",
+                    "src": "2763:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -1972,19 +1992,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "2748:6:0"
+              "src": "2762:6:0"
             },
-            "scope": 202,
-            "src": "2704:104:0",
+            "scope": 203,
+            "src": "2704:114:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 154,
+              "id": 155,
               "nodeType": "Block",
-              "src": "2889:135:0",
+              "src": "2899:135:0",
               "statements": [
                 {
                   "expression": {
@@ -1996,7 +2016,7 @@
                           "typeIdentifier": "t_uint256",
                           "typeString": "uint256"
                         },
-                        "id": 142,
+                        "id": 143,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2007,34 +2027,34 @@
                             "argumentTypes": null,
                             "baseExpression": {
                               "argumentTypes": null,
-                              "id": 136,
+                              "id": 137,
                               "name": "traveler",
                               "nodeType": "Identifier",
                               "overloadedDeclarations": [],
                               "referencedDeclaration": 18,
-                              "src": "2907:8:0",
+                              "src": "2917:8:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Traveler_$14_storage_$",
                                 "typeString": "mapping(address => struct BondiMat.Traveler storage ref)"
                               }
                             },
-                            "id": 139,
+                            "id": 140,
                             "indexExpression": {
                               "argumentTypes": null,
                               "expression": {
                                 "argumentTypes": null,
-                                "id": 137,
+                                "id": 138,
                                 "name": "msg",
                                 "nodeType": "Identifier",
                                 "overloadedDeclarations": [],
                                 "referencedDeclaration": -15,
-                                "src": "2916:3:0",
+                                "src": "2926:3:0",
                                 "typeDescriptions": {
                                   "typeIdentifier": "t_magic_message",
                                   "typeString": "msg"
                                 }
                               },
-                              "id": 138,
+                              "id": 139,
                               "isConstant": false,
                               "isLValue": false,
                               "isPure": false,
@@ -2042,7 +2062,7 @@
                               "memberName": "sender",
                               "nodeType": "MemberAccess",
                               "referencedDeclaration": null,
-                              "src": "2916:10:0",
+                              "src": "2926:10:0",
                               "typeDescriptions": {
                                 "typeIdentifier": "t_address_payable",
                                 "typeString": "address payable"
@@ -2053,13 +2073,13 @@
                             "isPure": false,
                             "lValueRequested": false,
                             "nodeType": "IndexAccess",
-                            "src": "2907:20:0",
+                            "src": "2917:20:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_struct$_Traveler_$14_storage",
                               "typeString": "struct BondiMat.Traveler storage ref"
                             }
                           },
-                          "id": 140,
+                          "id": 141,
                           "isConstant": false,
                           "isLValue": true,
                           "isPure": false,
@@ -2067,7 +2087,7 @@
                           "memberName": "tripsLeft",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": 13,
-                          "src": "2907:30:0",
+                          "src": "2917:30:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_uint256",
                             "typeString": "uint256"
@@ -2078,14 +2098,14 @@
                         "rightExpression": {
                           "argumentTypes": null,
                           "hexValue": "30",
-                          "id": 141,
+                          "id": 142,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": true,
                           "kind": "number",
                           "lValueRequested": false,
                           "nodeType": "Literal",
-                          "src": "2940:1:0",
+                          "src": "2950:1:0",
                           "subdenomination": null,
                           "typeDescriptions": {
                             "typeIdentifier": "t_rational_0_by_1",
@@ -2093,7 +2113,7 @@
                           },
                           "value": "0"
                         },
-                        "src": "2907:34:0",
+                        "src": "2917:34:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -2102,14 +2122,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "596f7520616c726561647920686176652030207469636b657473",
-                        "id": 143,
+                        "id": 144,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "2943:28:0",
+                        "src": "2953:28:0",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_1f38f3d0957e8762467b8db6c2d911eb4713a4ebcb035e80789bc06076011fc1",
@@ -2129,7 +2149,7 @@
                           "typeString": "literal_string \"You already have 0 tickets\""
                         }
                       ],
-                      "id": 135,
+                      "id": 136,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -2137,13 +2157,13 @@
                         -18
                       ],
                       "referencedDeclaration": -18,
-                      "src": "2899:7:0",
+                      "src": "2909:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 144,
+                    "id": 145,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2151,21 +2171,21 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "2899:73:0",
+                    "src": "2909:73:0",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 145,
+                  "id": 146,
                   "nodeType": "ExpressionStatement",
-                  "src": "2899:73:0"
+                  "src": "2909:73:0"
                 },
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 152,
+                    "id": 153,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2176,34 +2196,34 @@
                         "argumentTypes": null,
                         "baseExpression": {
                           "argumentTypes": null,
-                          "id": 146,
+                          "id": 147,
                           "name": "traveler",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 18,
-                          "src": "2982:8:0",
+                          "src": "2992:8:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_mapping$_t_address_$_t_struct$_Traveler_$14_storage_$",
                             "typeString": "mapping(address => struct BondiMat.Traveler storage ref)"
                           }
                         },
-                        "id": 149,
+                        "id": 150,
                         "indexExpression": {
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 147,
+                            "id": 148,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": -15,
-                            "src": "2991:3:0",
+                            "src": "3001:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 148,
+                          "id": 149,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2211,7 +2231,7 @@
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "2991:10:0",
+                          "src": "3001:10:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
@@ -2222,13 +2242,13 @@
                         "isPure": false,
                         "lValueRequested": false,
                         "nodeType": "IndexAccess",
-                        "src": "2982:20:0",
+                        "src": "2992:20:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_struct$_Traveler_$14_storage",
                           "typeString": "struct BondiMat.Traveler storage ref"
                         }
                       },
-                      "id": 150,
+                      "id": 151,
                       "isConstant": false,
                       "isLValue": true,
                       "isPure": false,
@@ -2236,7 +2256,7 @@
                       "memberName": "tripsLeft",
                       "nodeType": "MemberAccess",
                       "referencedDeclaration": 13,
-                      "src": "2982:30:0",
+                      "src": "2992:30:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -2247,14 +2267,14 @@
                     "rightHandSide": {
                       "argumentTypes": null,
                       "hexValue": "31",
-                      "id": 151,
+                      "id": 152,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": true,
                       "kind": "number",
                       "lValueRequested": false,
                       "nodeType": "Literal",
-                      "src": "3016:1:0",
+                      "src": "3026:1:0",
                       "subdenomination": null,
                       "typeDescriptions": {
                         "typeIdentifier": "t_rational_1_by_1",
@@ -2262,21 +2282,21 @@
                       },
                       "value": "1"
                     },
-                    "src": "2982:35:0",
+                    "src": "2992:35:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 153,
+                  "id": 154,
                   "nodeType": "ExpressionStatement",
-                  "src": "2982:35:0"
+                  "src": "2992:35:0"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "920bda7b",
-            "id": 155,
+            "id": 156,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -2284,45 +2304,45 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 133,
-              "nodeType": "ParameterList",
-              "parameters": [],
-              "src": "2878:2:0"
-            },
-            "returnParameters": {
               "id": 134,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "2889:0:0"
+              "src": "2888:2:0"
             },
-            "scope": 202,
-            "src": "2859:165:0",
+            "returnParameters": {
+              "id": 135,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "2899:0:0"
+            },
+            "scope": 203,
+            "src": "2869:165:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 166,
+              "id": 167,
               "nodeType": "Block",
-              "src": "3092:39:0",
+              "src": "3102:39:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 164,
+                    "id": 165,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
                     "lValueRequested": false,
                     "leftHandSide": {
                       "argumentTypes": null,
-                      "id": 162,
+                      "id": 163,
                       "name": "tripPrice",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
                       "referencedDeclaration": 7,
-                      "src": "3102:9:0",
+                      "src": "3112:9:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
@@ -2332,71 +2352,71 @@
                     "operator": "=",
                     "rightHandSide": {
                       "argumentTypes": null,
-                      "id": 163,
+                      "id": 164,
                       "name": "_tripPrice",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [],
-                      "referencedDeclaration": 157,
-                      "src": "3114:10:0",
+                      "referencedDeclaration": 158,
+                      "src": "3124:10:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_uint256",
                         "typeString": "uint256"
                       }
                     },
-                    "src": "3102:22:0",
+                    "src": "3112:22:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "id": 165,
+                  "id": 166,
                   "nodeType": "ExpressionStatement",
-                  "src": "3102:22:0"
+                  "src": "3112:22:0"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "23c5a088",
-            "id": 167,
+            "id": 168,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 160,
+                "id": 161,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 159,
+                  "id": 160,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 201,
-                  "src": "3083:9:0",
+                  "referencedDeclaration": 202,
+                  "src": "3093:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "3083:9:0"
+                "src": "3093:9:0"
               }
             ],
             "name": "updateCost",
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 158,
+              "id": 159,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 157,
+                  "id": 158,
                   "mutability": "mutable",
                   "name": "_tripPrice",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 167,
-                  "src": "3054:18:0",
+                  "scope": 168,
+                  "src": "3064:18:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2404,10 +2424,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 156,
+                    "id": 157,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3054:7:0",
+                    "src": "3064:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2417,50 +2437,50 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3053:20:0"
+              "src": "3063:20:0"
             },
             "returnParameters": {
-              "id": 161,
+              "id": 162,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3092:0:0"
+              "src": "3102:0:0"
             },
-            "scope": 202,
-            "src": "3034:97:0",
+            "scope": 203,
+            "src": "3044:97:0",
             "stateMutability": "nonpayable",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 174,
+              "id": 175,
               "nodeType": "Block",
-              "src": "3225:33:0",
+              "src": "3235:33:0",
               "statements": [
                 {
                   "expression": {
                     "argumentTypes": null,
-                    "id": 172,
+                    "id": 173,
                     "name": "tripPrice",
                     "nodeType": "Identifier",
                     "overloadedDeclarations": [],
                     "referencedDeclaration": 7,
-                    "src": "3242:9:0",
+                    "src": "3252:9:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 171,
-                  "id": 173,
+                  "functionReturnParameters": 172,
+                  "id": 174,
                   "nodeType": "Return",
-                  "src": "3235:16:0"
+                  "src": "3245:16:0"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "f87554bc",
-            "id": 175,
+            "id": 176,
             "implemented": true,
             "kind": "function",
             "modifiers": [],
@@ -2468,24 +2488,24 @@
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 168,
+              "id": 169,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3191:2:0"
+              "src": "3201:2:0"
             },
             "returnParameters": {
-              "id": 171,
+              "id": 172,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 170,
+                  "id": 171,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 175,
-                  "src": "3216:7:0",
+                  "scope": 176,
+                  "src": "3226:7:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2493,10 +2513,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 169,
+                    "id": 170,
                     "name": "uint256",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3216:7:0",
+                    "src": "3226:7:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2506,19 +2526,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3215:9:0"
+              "src": "3225:9:0"
             },
-            "scope": 202,
-            "src": "3170:88:0",
+            "scope": 203,
+            "src": "3180:88:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 188,
+              "id": 189,
               "nodeType": "Block",
-              "src": "3372:45:0",
+              "src": "3382:45:0",
               "statements": [
                 {
                   "expression": {
@@ -2528,14 +2548,14 @@
                       "arguments": [
                         {
                           "argumentTypes": null,
-                          "id": 184,
+                          "id": 185,
                           "name": "this",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": -28,
-                          "src": "3397:4:0",
+                          "src": "3407:4:0",
                           "typeDescriptions": {
-                            "typeIdentifier": "t_contract$_BondiMat_$202",
+                            "typeIdentifier": "t_contract$_BondiMat_$203",
                             "typeString": "contract BondiMat"
                           }
                         }
@@ -2543,33 +2563,33 @@
                       "expression": {
                         "argumentTypes": [
                           {
-                            "typeIdentifier": "t_contract$_BondiMat_$202",
+                            "typeIdentifier": "t_contract$_BondiMat_$203",
                             "typeString": "contract BondiMat"
                           }
                         ],
-                        "id": 183,
+                        "id": 184,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "lValueRequested": false,
                         "nodeType": "ElementaryTypeNameExpression",
-                        "src": "3389:7:0",
+                        "src": "3399:7:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_type$_t_address_$",
                           "typeString": "type(address)"
                         },
                         "typeName": {
-                          "id": 182,
+                          "id": 183,
                           "name": "address",
                           "nodeType": "ElementaryTypeName",
-                          "src": "3389:7:0",
+                          "src": "3399:7:0",
                           "typeDescriptions": {
                             "typeIdentifier": null,
                             "typeString": null
                           }
                         }
                       },
-                      "id": 185,
+                      "id": 186,
                       "isConstant": false,
                       "isLValue": false,
                       "isPure": false,
@@ -2577,14 +2597,14 @@
                       "lValueRequested": false,
                       "names": [],
                       "nodeType": "FunctionCall",
-                      "src": "3389:13:0",
+                      "src": "3399:13:0",
                       "tryCall": false,
                       "typeDescriptions": {
                         "typeIdentifier": "t_address",
                         "typeString": "address"
                       }
                     },
-                    "id": 186,
+                    "id": 187,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2592,67 +2612,67 @@
                     "memberName": "balance",
                     "nodeType": "MemberAccess",
                     "referencedDeclaration": null,
-                    "src": "3389:21:0",
+                    "src": "3399:21:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
                     }
                   },
-                  "functionReturnParameters": 181,
-                  "id": 187,
+                  "functionReturnParameters": 182,
+                  "id": 188,
                   "nodeType": "Return",
-                  "src": "3382:28:0"
+                  "src": "3392:28:0"
                 }
               ]
             },
             "documentation": null,
             "functionSelector": "e6c7c456",
-            "id": 189,
+            "id": 190,
             "implemented": true,
             "kind": "function",
             "modifiers": [
               {
                 "arguments": null,
-                "id": 178,
+                "id": 179,
                 "modifierName": {
                   "argumentTypes": null,
-                  "id": 177,
+                  "id": 178,
                   "name": "onlyOwner",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 201,
-                  "src": "3349:9:0",
+                  "referencedDeclaration": 202,
+                  "src": "3359:9:0",
                   "typeDescriptions": {
                     "typeIdentifier": "t_modifier$__$",
                     "typeString": "modifier ()"
                   }
                 },
                 "nodeType": "ModifierInvocation",
-                "src": "3349:9:0"
+                "src": "3359:9:0"
               }
             ],
             "name": "balanceOfContract",
             "nodeType": "FunctionDefinition",
             "overrides": null,
             "parameters": {
-              "id": 176,
+              "id": 177,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3332:2:0"
+              "src": "3342:2:0"
             },
             "returnParameters": {
-              "id": 181,
+              "id": 182,
               "nodeType": "ParameterList",
               "parameters": [
                 {
                   "constant": false,
-                  "id": 180,
+                  "id": 181,
                   "mutability": "mutable",
                   "name": "",
                   "nodeType": "VariableDeclaration",
                   "overrides": null,
-                  "scope": 189,
-                  "src": "3367:4:0",
+                  "scope": 190,
+                  "src": "3377:4:0",
                   "stateVariable": false,
                   "storageLocation": "default",
                   "typeDescriptions": {
@@ -2660,10 +2680,10 @@
                     "typeString": "uint256"
                   },
                   "typeName": {
-                    "id": 179,
+                    "id": 180,
                     "name": "uint",
                     "nodeType": "ElementaryTypeName",
-                    "src": "3367:4:0",
+                    "src": "3377:4:0",
                     "typeDescriptions": {
                       "typeIdentifier": "t_uint256",
                       "typeString": "uint256"
@@ -2673,19 +2693,19 @@
                   "visibility": "internal"
                 }
               ],
-              "src": "3366:6:0"
+              "src": "3376:6:0"
             },
-            "scope": 202,
-            "src": "3306:111:0",
+            "scope": 203,
+            "src": "3316:111:0",
             "stateMutability": "view",
             "virtual": false,
             "visibility": "external"
           },
           {
             "body": {
-              "id": 200,
+              "id": 201,
               "nodeType": "Block",
-              "src": "3537:122:0",
+              "src": "3547:122:0",
               "statements": [
                 {
                   "expression": {
@@ -2697,7 +2717,7 @@
                           "typeIdentifier": "t_address_payable",
                           "typeString": "address payable"
                         },
-                        "id": 195,
+                        "id": 196,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": false,
@@ -2706,18 +2726,18 @@
                           "argumentTypes": null,
                           "expression": {
                             "argumentTypes": null,
-                            "id": 192,
+                            "id": 193,
                             "name": "msg",
                             "nodeType": "Identifier",
                             "overloadedDeclarations": [],
                             "referencedDeclaration": -15,
-                            "src": "3555:3:0",
+                            "src": "3565:3:0",
                             "typeDescriptions": {
                               "typeIdentifier": "t_magic_message",
                               "typeString": "msg"
                             }
                           },
-                          "id": 193,
+                          "id": 194,
                           "isConstant": false,
                           "isLValue": false,
                           "isPure": false,
@@ -2725,7 +2745,7 @@
                           "memberName": "sender",
                           "nodeType": "MemberAccess",
                           "referencedDeclaration": null,
-                          "src": "3555:10:0",
+                          "src": "3565:10:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
@@ -2735,18 +2755,18 @@
                         "operator": "==",
                         "rightExpression": {
                           "argumentTypes": null,
-                          "id": 194,
+                          "id": 195,
                           "name": "owner",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
                           "referencedDeclaration": 5,
-                          "src": "3569:5:0",
+                          "src": "3579:5:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_address_payable",
                             "typeString": "address payable"
                           }
                         },
-                        "src": "3555:19:0",
+                        "src": "3565:19:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_bool",
                           "typeString": "bool"
@@ -2755,14 +2775,14 @@
                       {
                         "argumentTypes": null,
                         "hexValue": "4920616d20616672616964206f6e6c7920436f6e7472616374204f776e65722063616e20706572666f726d20746869732074797065206f66207461736b73",
-                        "id": 196,
+                        "id": 197,
                         "isConstant": false,
                         "isLValue": false,
                         "isPure": true,
                         "kind": "string",
                         "lValueRequested": false,
                         "nodeType": "Literal",
-                        "src": "3576:64:0",
+                        "src": "3586:64:0",
                         "subdenomination": null,
                         "typeDescriptions": {
                           "typeIdentifier": "t_stringliteral_84751a2504785baba6f27f4e4df4ac63c46053b5cf58579fa1b2aacfc67b0b72",
@@ -2782,7 +2802,7 @@
                           "typeString": "literal_string \"I am afraid only Contract Owner can perform this type of tasks\""
                         }
                       ],
-                      "id": 191,
+                      "id": 192,
                       "name": "require",
                       "nodeType": "Identifier",
                       "overloadedDeclarations": [
@@ -2790,13 +2810,13 @@
                         -18
                       ],
                       "referencedDeclaration": -18,
-                      "src": "3547:7:0",
+                      "src": "3557:7:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_require_pure$_t_bool_$_t_string_memory_ptr_$returns$__$",
                         "typeString": "function (bool,string memory) pure"
                       }
                     },
-                    "id": 197,
+                    "id": 198,
                     "isConstant": false,
                     "isLValue": false,
                     "isPure": false,
@@ -2804,52 +2824,52 @@
                     "lValueRequested": false,
                     "names": [],
                     "nodeType": "FunctionCall",
-                    "src": "3547:94:0",
+                    "src": "3557:94:0",
                     "tryCall": false,
                     "typeDescriptions": {
                       "typeIdentifier": "t_tuple$__$",
                       "typeString": "tuple()"
                     }
                   },
-                  "id": 198,
+                  "id": 199,
                   "nodeType": "ExpressionStatement",
-                  "src": "3547:94:0"
+                  "src": "3557:94:0"
                 },
                 {
-                  "id": 199,
+                  "id": 200,
                   "nodeType": "PlaceholderStatement",
-                  "src": "3651:1:0"
+                  "src": "3661:1:0"
                 }
               ]
             },
             "documentation": null,
-            "id": 201,
+            "id": 202,
             "name": "onlyOwner",
             "nodeType": "ModifierDefinition",
             "overrides": null,
             "parameters": {
-              "id": 190,
+              "id": 191,
               "nodeType": "ParameterList",
               "parameters": [],
-              "src": "3535:2:0"
+              "src": "3545:2:0"
             },
-            "src": "3517:142:0",
+            "src": "3527:142:0",
             "virtual": false,
             "visibility": "internal"
           }
         ],
-        "scope": 203,
-        "src": "345:3931:0"
+        "scope": 204,
+        "src": "345:3941:0"
       }
     ],
-    "src": "65:4449:0"
+    "src": "65:4459:0"
   },
   "legacyAST": {
     "attributes": {
       "absolutePath": "project:/contracts/BondiMat.sol",
       "exportedSymbols": {
         "BondiMat": [
-          202
+          203
         ]
       }
     },
@@ -2880,10 +2900,10 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            202
+            203
           ],
           "name": "BondiMat",
-          "scope": 203
+          "scope": 204
         },
         "children": [
           {
@@ -2892,7 +2912,7 @@
               "mutability": "mutable",
               "name": "codeQR",
               "overrides": null,
-              "scope": 202,
+              "scope": 203,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "address",
@@ -2922,7 +2942,7 @@
               "mutability": "mutable",
               "name": "owner",
               "overrides": null,
-              "scope": 202,
+              "scope": 203,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "address payable",
@@ -2952,7 +2972,7 @@
               "mutability": "mutable",
               "name": "tripPrice",
               "overrides": null,
-              "scope": 202,
+              "scope": 203,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -2980,7 +3000,7 @@
               "mutability": "immutable",
               "name": "deployDate",
               "overrides": null,
-              "scope": 202,
+              "scope": 203,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256",
@@ -3006,7 +3026,7 @@
             "attributes": {
               "canonicalName": "BondiMat.Traveler",
               "name": "Traveler",
-              "scope": 202,
+              "scope": 203,
               "visibility": "public"
             },
             "children": [
@@ -3078,7 +3098,7 @@
               "mutability": "mutable",
               "name": "traveler",
               "overrides": null,
-              "scope": 202,
+              "scope": 203,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => struct BondiMat.Traveler)",
@@ -3210,7 +3230,7 @@
               ],
               "name": "",
               "overrides": null,
-              "scope": 202,
+              "scope": 203,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "public"
@@ -3452,7 +3472,7 @@
               ],
               "name": "buyTicket",
               "overrides": null,
-              "scope": 202,
+              "scope": 203,
               "stateMutability": "payable",
               "virtual": false,
               "visibility": "external"
@@ -4423,7 +4443,7 @@
               ],
               "name": "getTotalCost",
               "overrides": null,
-              "scope": 202,
+              "scope": 203,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -4626,7 +4646,7 @@
           {
             "attributes": {
               "documentation": null,
-              "functionSelector": "d8edfde7",
+              "functionSelector": "80017f4e",
               "implemented": true,
               "isConstructor": false,
               "kind": "function",
@@ -4635,22 +4655,47 @@
               ],
               "name": "userTickets",
               "overrides": null,
-              "scope": 202,
+              "scope": 203,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
             },
             "children": [
               {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
-                "id": 121,
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "mutability": "mutable",
+                      "name": "_buyer",
+                      "overrides": null,
+                      "scope": 133,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "stateMutability": "nonpayable",
+                          "type": "address"
+                        },
+                        "id": 121,
+                        "name": "ElementaryTypeName",
+                        "src": "2725:7:0"
+                      }
+                    ],
+                    "id": 122,
+                    "name": "VariableDeclaration",
+                    "src": "2725:14:0"
+                  }
+                ],
+                "id": 123,
                 "name": "ParameterList",
-                "src": "2724:2:0"
+                "src": "2724:16:0"
               },
               {
                 "children": [
@@ -4660,7 +4705,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 132,
+                      "scope": 133,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -4673,25 +4718,25 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 122,
+                        "id": 124,
                         "name": "ElementaryTypeName",
-                        "src": "2749:4:0"
+                        "src": "2763:4:0"
                       }
                     ],
-                    "id": 123,
+                    "id": 125,
                     "name": "VariableDeclaration",
-                    "src": "2749:4:0"
+                    "src": "2763:4:0"
                   }
                 ],
-                "id": 124,
+                "id": 126,
                 "name": "ParameterList",
-                "src": "2748:6:0"
+                "src": "2762:6:0"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 124
+                      "functionReturnParameters": 126
                     },
                     "children": [
                       {
@@ -4726,65 +4771,48 @@
                                   "type": "mapping(address => struct BondiMat.Traveler storage ref)",
                                   "value": "traveler"
                                 },
-                                "id": 125,
+                                "id": 127,
                                 "name": "Identifier",
-                                "src": "2771:8:0"
+                                "src": "2785:8:0"
                               },
                               {
                                 "attributes": {
                                   "argumentTypes": null,
-                                  "isConstant": false,
-                                  "isLValue": false,
-                                  "isPure": false,
-                                  "lValueRequested": false,
-                                  "member_name": "sender",
-                                  "referencedDeclaration": null,
-                                  "type": "address payable"
+                                  "overloadedDeclarations": [
+                                    null
+                                  ],
+                                  "referencedDeclaration": 122,
+                                  "type": "address",
+                                  "value": "_buyer"
                                 },
-                                "children": [
-                                  {
-                                    "attributes": {
-                                      "argumentTypes": null,
-                                      "overloadedDeclarations": [
-                                        null
-                                      ],
-                                      "referencedDeclaration": -15,
-                                      "type": "msg",
-                                      "value": "msg"
-                                    },
-                                    "id": 126,
-                                    "name": "Identifier",
-                                    "src": "2780:3:0"
-                                  }
-                                ],
-                                "id": 127,
-                                "name": "MemberAccess",
-                                "src": "2780:10:0"
+                                "id": 128,
+                                "name": "Identifier",
+                                "src": "2794:6:0"
                               }
                             ],
-                            "id": 128,
+                            "id": 129,
                             "name": "IndexAccess",
-                            "src": "2771:20:0"
+                            "src": "2785:16:0"
                           }
                         ],
-                        "id": 129,
+                        "id": 130,
                         "name": "MemberAccess",
-                        "src": "2771:30:0"
+                        "src": "2785:26:0"
                       }
                     ],
-                    "id": 130,
+                    "id": 131,
                     "name": "Return",
-                    "src": "2764:37:0"
+                    "src": "2778:33:0"
                   }
                 ],
-                "id": 131,
+                "id": 132,
                 "name": "Block",
-                "src": "2754:54:0"
+                "src": "2768:50:0"
               }
             ],
-            "id": 132,
+            "id": 133,
             "name": "FunctionDefinition",
-            "src": "2704:104:0"
+            "src": "2704:114:0"
           },
           {
             "attributes": {
@@ -4798,7 +4826,7 @@
               ],
               "name": "usedTicket",
               "overrides": null,
-              "scope": 202,
+              "scope": 203,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -4811,9 +4839,9 @@
                   ]
                 },
                 "children": [],
-                "id": 133,
+                "id": 134,
                 "name": "ParameterList",
-                "src": "2878:2:0"
+                "src": "2888:2:0"
               },
               {
                 "attributes": {
@@ -4822,9 +4850,9 @@
                   ]
                 },
                 "children": [],
-                "id": 134,
+                "id": 135,
                 "name": "ParameterList",
-                "src": "2889:0:0"
+                "src": "2899:0:0"
               },
               {
                 "children": [
@@ -4866,9 +4894,9 @@
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
-                            "id": 135,
+                            "id": 136,
                             "name": "Identifier",
-                            "src": "2899:7:0"
+                            "src": "2909:7:0"
                           },
                           {
                             "attributes": {
@@ -4917,9 +4945,9 @@
                                           "type": "mapping(address => struct BondiMat.Traveler storage ref)",
                                           "value": "traveler"
                                         },
-                                        "id": 136,
+                                        "id": 137,
                                         "name": "Identifier",
-                                        "src": "2907:8:0"
+                                        "src": "2917:8:0"
                                       },
                                       {
                                         "attributes": {
@@ -4943,24 +4971,24 @@
                                               "type": "msg",
                                               "value": "msg"
                                             },
-                                            "id": 137,
+                                            "id": 138,
                                             "name": "Identifier",
-                                            "src": "2916:3:0"
+                                            "src": "2926:3:0"
                                           }
                                         ],
-                                        "id": 138,
+                                        "id": 139,
                                         "name": "MemberAccess",
-                                        "src": "2916:10:0"
+                                        "src": "2926:10:0"
                                       }
                                     ],
-                                    "id": 139,
+                                    "id": 140,
                                     "name": "IndexAccess",
-                                    "src": "2907:20:0"
+                                    "src": "2917:20:0"
                                   }
                                 ],
-                                "id": 140,
+                                "id": 141,
                                 "name": "MemberAccess",
-                                "src": "2907:30:0"
+                                "src": "2917:30:0"
                               },
                               {
                                 "attributes": {
@@ -4975,14 +5003,14 @@
                                   "type": "int_const 0",
                                   "value": "0"
                                 },
-                                "id": 141,
+                                "id": 142,
                                 "name": "Literal",
-                                "src": "2940:1:0"
+                                "src": "2950:1:0"
                               }
                             ],
-                            "id": 142,
+                            "id": 143,
                             "name": "BinaryOperation",
-                            "src": "2907:34:0"
+                            "src": "2917:34:0"
                           },
                           {
                             "attributes": {
@@ -4997,19 +5025,19 @@
                               "type": "literal_string \"You already have 0 tickets\"",
                               "value": "You already have 0 tickets"
                             },
-                            "id": 143,
+                            "id": 144,
                             "name": "Literal",
-                            "src": "2943:28:0"
+                            "src": "2953:28:0"
                           }
                         ],
-                        "id": 144,
+                        "id": 145,
                         "name": "FunctionCall",
-                        "src": "2899:73:0"
+                        "src": "2909:73:0"
                       }
                     ],
-                    "id": 145,
+                    "id": 146,
                     "name": "ExpressionStatement",
-                    "src": "2899:73:0"
+                    "src": "2909:73:0"
                   },
                   {
                     "children": [
@@ -5056,9 +5084,9 @@
                                       "type": "mapping(address => struct BondiMat.Traveler storage ref)",
                                       "value": "traveler"
                                     },
-                                    "id": 146,
+                                    "id": 147,
                                     "name": "Identifier",
-                                    "src": "2982:8:0"
+                                    "src": "2992:8:0"
                                   },
                                   {
                                     "attributes": {
@@ -5082,24 +5110,24 @@
                                           "type": "msg",
                                           "value": "msg"
                                         },
-                                        "id": 147,
+                                        "id": 148,
                                         "name": "Identifier",
-                                        "src": "2991:3:0"
+                                        "src": "3001:3:0"
                                       }
                                     ],
-                                    "id": 148,
+                                    "id": 149,
                                     "name": "MemberAccess",
-                                    "src": "2991:10:0"
+                                    "src": "3001:10:0"
                                   }
                                 ],
-                                "id": 149,
+                                "id": 150,
                                 "name": "IndexAccess",
-                                "src": "2982:20:0"
+                                "src": "2992:20:0"
                               }
                             ],
-                            "id": 150,
+                            "id": 151,
                             "name": "MemberAccess",
-                            "src": "2982:30:0"
+                            "src": "2992:30:0"
                           },
                           {
                             "attributes": {
@@ -5114,29 +5142,29 @@
                               "type": "int_const 1",
                               "value": "1"
                             },
-                            "id": 151,
+                            "id": 152,
                             "name": "Literal",
-                            "src": "3016:1:0"
+                            "src": "3026:1:0"
                           }
                         ],
-                        "id": 152,
+                        "id": 153,
                         "name": "Assignment",
-                        "src": "2982:35:0"
+                        "src": "2992:35:0"
                       }
                     ],
-                    "id": 153,
+                    "id": 154,
                     "name": "ExpressionStatement",
-                    "src": "2982:35:0"
+                    "src": "2992:35:0"
                   }
                 ],
-                "id": 154,
+                "id": 155,
                 "name": "Block",
-                "src": "2889:135:0"
+                "src": "2899:135:0"
               }
             ],
-            "id": 155,
+            "id": 156,
             "name": "FunctionDefinition",
-            "src": "2859:165:0"
+            "src": "2869:165:0"
           },
           {
             "attributes": {
@@ -5147,7 +5175,7 @@
               "kind": "function",
               "name": "updateCost",
               "overrides": null,
-              "scope": 202,
+              "scope": 203,
               "stateMutability": "nonpayable",
               "virtual": false,
               "visibility": "external"
@@ -5161,7 +5189,7 @@
                       "mutability": "mutable",
                       "name": "_tripPrice",
                       "overrides": null,
-                      "scope": 167,
+                      "scope": 168,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -5174,19 +5202,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 156,
+                        "id": 157,
                         "name": "ElementaryTypeName",
-                        "src": "3054:7:0"
+                        "src": "3064:7:0"
                       }
                     ],
-                    "id": 157,
+                    "id": 158,
                     "name": "VariableDeclaration",
-                    "src": "3054:18:0"
+                    "src": "3064:18:0"
                   }
                 ],
-                "id": 158,
+                "id": 159,
                 "name": "ParameterList",
-                "src": "3053:20:0"
+                "src": "3063:20:0"
               },
               {
                 "attributes": {
@@ -5195,9 +5223,9 @@
                   ]
                 },
                 "children": [],
-                "id": 161,
+                "id": 162,
                 "name": "ParameterList",
-                "src": "3092:0:0"
+                "src": "3102:0:0"
               },
               {
                 "attributes": {
@@ -5210,18 +5238,18 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 201,
+                      "referencedDeclaration": 202,
                       "type": "modifier ()",
                       "value": "onlyOwner"
                     },
-                    "id": 159,
+                    "id": 160,
                     "name": "Identifier",
-                    "src": "3083:9:0"
+                    "src": "3093:9:0"
                   }
                 ],
-                "id": 160,
+                "id": 161,
                 "name": "ModifierInvocation",
-                "src": "3083:9:0"
+                "src": "3093:9:0"
               },
               {
                 "children": [
@@ -5248,9 +5276,9 @@
                               "type": "uint256",
                               "value": "tripPrice"
                             },
-                            "id": 162,
+                            "id": 163,
                             "name": "Identifier",
-                            "src": "3102:9:0"
+                            "src": "3112:9:0"
                           },
                           {
                             "attributes": {
@@ -5258,33 +5286,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 157,
+                              "referencedDeclaration": 158,
                               "type": "uint256",
                               "value": "_tripPrice"
                             },
-                            "id": 163,
+                            "id": 164,
                             "name": "Identifier",
-                            "src": "3114:10:0"
+                            "src": "3124:10:0"
                           }
                         ],
-                        "id": 164,
+                        "id": 165,
                         "name": "Assignment",
-                        "src": "3102:22:0"
+                        "src": "3112:22:0"
                       }
                     ],
-                    "id": 165,
+                    "id": 166,
                     "name": "ExpressionStatement",
-                    "src": "3102:22:0"
+                    "src": "3112:22:0"
                   }
                 ],
-                "id": 166,
+                "id": 167,
                 "name": "Block",
-                "src": "3092:39:0"
+                "src": "3102:39:0"
               }
             ],
-            "id": 167,
+            "id": 168,
             "name": "FunctionDefinition",
-            "src": "3034:97:0"
+            "src": "3044:97:0"
           },
           {
             "attributes": {
@@ -5298,7 +5326,7 @@
               ],
               "name": "gettripPrice",
               "overrides": null,
-              "scope": 202,
+              "scope": 203,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -5311,9 +5339,9 @@
                   ]
                 },
                 "children": [],
-                "id": 168,
+                "id": 169,
                 "name": "ParameterList",
-                "src": "3191:2:0"
+                "src": "3201:2:0"
               },
               {
                 "children": [
@@ -5323,7 +5351,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 175,
+                      "scope": 176,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -5336,25 +5364,25 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 169,
+                        "id": 170,
                         "name": "ElementaryTypeName",
-                        "src": "3216:7:0"
+                        "src": "3226:7:0"
                       }
                     ],
-                    "id": 170,
+                    "id": 171,
                     "name": "VariableDeclaration",
-                    "src": "3216:7:0"
+                    "src": "3226:7:0"
                   }
                 ],
-                "id": 171,
+                "id": 172,
                 "name": "ParameterList",
-                "src": "3215:9:0"
+                "src": "3225:9:0"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 171
+                      "functionReturnParameters": 172
                     },
                     "children": [
                       {
@@ -5367,24 +5395,24 @@
                           "type": "uint256",
                           "value": "tripPrice"
                         },
-                        "id": 172,
+                        "id": 173,
                         "name": "Identifier",
-                        "src": "3242:9:0"
+                        "src": "3252:9:0"
                       }
                     ],
-                    "id": 173,
+                    "id": 174,
                     "name": "Return",
-                    "src": "3235:16:0"
+                    "src": "3245:16:0"
                   }
                 ],
-                "id": 174,
+                "id": 175,
                 "name": "Block",
-                "src": "3225:33:0"
+                "src": "3235:33:0"
               }
             ],
-            "id": 175,
+            "id": 176,
             "name": "FunctionDefinition",
-            "src": "3170:88:0"
+            "src": "3180:88:0"
           },
           {
             "attributes": {
@@ -5395,7 +5423,7 @@
               "kind": "function",
               "name": "balanceOfContract",
               "overrides": null,
-              "scope": 202,
+              "scope": 203,
               "stateMutability": "view",
               "virtual": false,
               "visibility": "external"
@@ -5408,9 +5436,9 @@
                   ]
                 },
                 "children": [],
-                "id": 176,
+                "id": 177,
                 "name": "ParameterList",
-                "src": "3332:2:0"
+                "src": "3342:2:0"
               },
               {
                 "children": [
@@ -5420,7 +5448,7 @@
                       "mutability": "mutable",
                       "name": "",
                       "overrides": null,
-                      "scope": 189,
+                      "scope": 190,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -5433,19 +5461,19 @@
                           "name": "uint",
                           "type": "uint256"
                         },
-                        "id": 179,
+                        "id": 180,
                         "name": "ElementaryTypeName",
-                        "src": "3367:4:0"
+                        "src": "3377:4:0"
                       }
                     ],
-                    "id": 180,
+                    "id": 181,
                     "name": "VariableDeclaration",
-                    "src": "3367:4:0"
+                    "src": "3377:4:0"
                   }
                 ],
-                "id": 181,
+                "id": 182,
                 "name": "ParameterList",
-                "src": "3366:6:0"
+                "src": "3376:6:0"
               },
               {
                 "attributes": {
@@ -5458,24 +5486,24 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 201,
+                      "referencedDeclaration": 202,
                       "type": "modifier ()",
                       "value": "onlyOwner"
                     },
-                    "id": 177,
+                    "id": 178,
                     "name": "Identifier",
-                    "src": "3349:9:0"
+                    "src": "3359:9:0"
                   }
                 ],
-                "id": 178,
+                "id": 179,
                 "name": "ModifierInvocation",
-                "src": "3349:9:0"
+                "src": "3359:9:0"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 181
+                      "functionReturnParameters": 182
                     },
                     "children": [
                       {
@@ -5510,7 +5538,7 @@
                                 "attributes": {
                                   "argumentTypes": [
                                     {
-                                      "typeIdentifier": "t_contract$_BondiMat_$202",
+                                      "typeIdentifier": "t_contract$_BondiMat_$203",
                                       "typeString": "contract BondiMat"
                                     }
                                   ],
@@ -5526,14 +5554,14 @@
                                       "name": "address",
                                       "type": null
                                     },
-                                    "id": 182,
+                                    "id": 183,
                                     "name": "ElementaryTypeName",
-                                    "src": "3389:7:0"
+                                    "src": "3399:7:0"
                                   }
                                 ],
-                                "id": 183,
+                                "id": 184,
                                 "name": "ElementaryTypeNameExpression",
-                                "src": "3389:7:0"
+                                "src": "3399:7:0"
                               },
                               {
                                 "attributes": {
@@ -5545,34 +5573,34 @@
                                   "type": "contract BondiMat",
                                   "value": "this"
                                 },
-                                "id": 184,
+                                "id": 185,
                                 "name": "Identifier",
-                                "src": "3397:4:0"
+                                "src": "3407:4:0"
                               }
                             ],
-                            "id": 185,
+                            "id": 186,
                             "name": "FunctionCall",
-                            "src": "3389:13:0"
+                            "src": "3399:13:0"
                           }
                         ],
-                        "id": 186,
+                        "id": 187,
                         "name": "MemberAccess",
-                        "src": "3389:21:0"
+                        "src": "3399:21:0"
                       }
                     ],
-                    "id": 187,
+                    "id": 188,
                     "name": "Return",
-                    "src": "3382:28:0"
+                    "src": "3392:28:0"
                   }
                 ],
-                "id": 188,
+                "id": 189,
                 "name": "Block",
-                "src": "3372:45:0"
+                "src": "3382:45:0"
               }
             ],
-            "id": 189,
+            "id": 190,
             "name": "FunctionDefinition",
-            "src": "3306:111:0"
+            "src": "3316:111:0"
           },
           {
             "attributes": {
@@ -5590,9 +5618,9 @@
                   ]
                 },
                 "children": [],
-                "id": 190,
+                "id": 191,
                 "name": "ParameterList",
-                "src": "3535:2:0"
+                "src": "3545:2:0"
               },
               {
                 "children": [
@@ -5634,9 +5662,9 @@
                               "type": "function (bool,string memory) pure",
                               "value": "require"
                             },
-                            "id": 191,
+                            "id": 192,
                             "name": "Identifier",
-                            "src": "3547:7:0"
+                            "src": "3557:7:0"
                           },
                           {
                             "attributes": {
@@ -5675,14 +5703,14 @@
                                       "type": "msg",
                                       "value": "msg"
                                     },
-                                    "id": 192,
+                                    "id": 193,
                                     "name": "Identifier",
-                                    "src": "3555:3:0"
+                                    "src": "3565:3:0"
                                   }
                                 ],
-                                "id": 193,
+                                "id": 194,
                                 "name": "MemberAccess",
-                                "src": "3555:10:0"
+                                "src": "3565:10:0"
                               },
                               {
                                 "attributes": {
@@ -5694,14 +5722,14 @@
                                   "type": "address payable",
                                   "value": "owner"
                                 },
-                                "id": 194,
+                                "id": 195,
                                 "name": "Identifier",
-                                "src": "3569:5:0"
+                                "src": "3579:5:0"
                               }
                             ],
-                            "id": 195,
+                            "id": 196,
                             "name": "BinaryOperation",
-                            "src": "3555:19:0"
+                            "src": "3565:19:0"
                           },
                           {
                             "attributes": {
@@ -5716,44 +5744,44 @@
                               "type": "literal_string \"I am afraid only Contract Owner can perform this type of tasks\"",
                               "value": "I am afraid only Contract Owner can perform this type of tasks"
                             },
-                            "id": 196,
+                            "id": 197,
                             "name": "Literal",
-                            "src": "3576:64:0"
+                            "src": "3586:64:0"
                           }
                         ],
-                        "id": 197,
+                        "id": 198,
                         "name": "FunctionCall",
-                        "src": "3547:94:0"
+                        "src": "3557:94:0"
                       }
                     ],
-                    "id": 198,
+                    "id": 199,
                     "name": "ExpressionStatement",
-                    "src": "3547:94:0"
+                    "src": "3557:94:0"
                   },
                   {
-                    "id": 199,
+                    "id": 200,
                     "name": "PlaceholderStatement",
-                    "src": "3651:1:0"
+                    "src": "3661:1:0"
                   }
                 ],
-                "id": 200,
+                "id": 201,
                 "name": "Block",
-                "src": "3537:122:0"
+                "src": "3547:122:0"
               }
             ],
-            "id": 201,
+            "id": 202,
             "name": "ModifierDefinition",
-            "src": "3517:142:0"
+            "src": "3527:142:0"
           }
         ],
-        "id": 202,
+        "id": 203,
         "name": "ContractDefinition",
-        "src": "345:3931:0"
+        "src": "345:3941:0"
       }
     ],
-    "id": 203,
+    "id": 204,
     "name": "SourceUnit",
-    "src": "65:4449:0"
+    "src": "65:4459:0"
   },
   "compiler": {
     "name": "solc",
@@ -5861,10 +5889,16 @@
       "links": {},
       "address": "0xB348981B565cA63a440a3D9DF730fD38eAC280DE",
       "transactionHash": "0x1670cd658bad3bce3f26584e8422db40b62693c74768910ff3b8f7940575057e"
+    },
+    "1637752426359": {
+      "events": {},
+      "links": {},
+      "address": "0x54039bc6c87ac85D5669bbf277EFee3c940EED0B",
+      "transactionHash": "0xa2d32d73d2d888ee835195e9ea21d997fed4839b11221a36e47cc9dd107696cc"
     }
   },
   "schemaVersion": "3.4.3",
-  "updatedAt": "2021-11-23T11:34:37.991Z",
+  "updatedAt": "2021-11-24T11:24:40.759Z",
   "networkType": "ethereum",
   "devdoc": {
     "methods": {}

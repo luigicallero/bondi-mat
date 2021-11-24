@@ -56,8 +56,8 @@ contract BondiMat{
         return test;
     }
     
-    function userTickets() external view returns(uint){
-        return traveler[msg.sender].tripsLeft;
+    function userTickets(address _buyer) external view returns(uint){
+        return traveler[_buyer].tripsLeft;
     }
 
     // *** Temporary trips Decrease function
